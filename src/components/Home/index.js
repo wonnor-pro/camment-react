@@ -1,15 +1,23 @@
+import './index.css';
 import React from 'react';
 import { compose } from 'recompose';
 
 import { withAuthorization, withEmailVerification } from '../Session';
-import Messages from '../Messages';
 
 const HomePage = () => (
-  <div>
-    <h1>Home Page</h1>
-    <p>The Home Page is accessible by every signed in user.</p>
-
-    <Messages />
+  <div className='home'>
+    <div className='home_nav'>
+      <a className='home_nav_button' id='home_button' href='/'>Home</a>
+      <a className='home_nav_button' id='review_button' href='/reviews'>Reviews</a>
+      <a className='home_nav_button' id='user_button' href='/account'>Account</a>
+      <a className='home_nav_button' id='logout_button' href='/signout'>SignOut</a>
+    </div>
+    <div className='home_title'>
+      # Camment _
+    </div>
+    <div className='home_slogan'>
+      <p>Cambridge Engineering Course Review Platform</p>
+    </div>
   </div>
 );
 

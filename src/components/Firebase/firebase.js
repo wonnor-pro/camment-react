@@ -3,12 +3,14 @@ import 'firebase/auth';
 import 'firebase/database';
 
 const config = {
-  apiKey: process.env.REACT_APP_API_KEY,
-  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-  databaseURL: process.env.REACT_APP_DATABASE_URL,
-  projectId: process.env.REACT_APP_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  apiKey: "AIzaSyCkarNMuv0dOHIM6rf8ig601FbqGaHE6ig",
+  authDomain: "camment-e6b72.firebaseapp.com",
+  databaseURL: "https://camment-e6b72-default-rtdb.firebaseio.com",
+  projectId: "camment-e6b72",
+  storageBucket: "camment-e6b72.appspot.com",
+  messagingSenderId: "626619278839",
+  appId: "1:626619278839:web:4ea7fc901c7bb8e63f3af2",
+  measurementId: "G-JSVCX276DG"
 };
 
 class Firebase {

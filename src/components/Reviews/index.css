@@ -1,0 +1,493 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+body{
+  background-color: rgba(245,245,245,1);
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  font-family: JetBrains Mono, serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+a:hover {
+  color: #FA9600;
+  text-decoration: none;
+}
+
+a:hover::after {
+  border-color: #FA9600;
+  right: 0;
+}
+
+a {
+  color: inherit;
+  position: relative;
+  text-decoration: none;
+  transition: color .4s ease-out;
+}
+
+a::after {
+  border-radius: 1em;
+  border-top: .1em solid #FA9600;
+  content: "";
+  position: absolute;
+  right: 100%;
+  bottom: 0;
+  left: 0;
+  transition: right .4s cubic-bezier(0,.5,0,1),
+  border-color .4s ease-out;
+}
+
+#container {
+  margin: auto;
+
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 8vh;
+  color: whitesmoke;
+  background-color: #3B434D;
+  padding: 20px 0;
+}
+
+#logo-title {
+  font-size: 30px;
+}
+
+.nav-links {
+  display: flex;
+  width: 30%;
+  justify-content: space-around;
+}
+
+.nav-links li{
+  list-style: none;
+}
+
+.burger {
+  display: none;
+}
+.burger div{
+  width: 25px;
+  height: 2px;
+  margin: 5px;
+  background-color: whitesmoke;
+  transition: all 0.3s ease;
+}
+
+.alert{
+  align-content: center;
+  text-align: center;
+  color: #fa6400;
+  padding-bottom: 20px;
+}
+
+/* Nav bar animation */
+
+@media screen and (max-width: 768px) {
+  body{
+    overflow-x: hidden;
+  }
+  .nav-links{
+    position: absolute;
+    right: 0;
+    height: 92vh;
+    top: 11vh;
+    background-color: #3B434D;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10% 0;
+    width: 30%;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in;
+  }
+
+  .nav-links li{
+    opacity: 0;
+    padding-top: 30%;
+
+  }
+
+  .burger {
+    display: block;
+    cursor: pointer;
+  }
+}
+
+.nav-active {
+  transform: translateX(0%);
+}
+
+@keyframes navLinkFade{
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.toggle #line1 {
+  transform: rotate(-45deg) translate(-4px, 6px);
+}
+.toggle #line2 {
+  opacity: 0;
+}
+.toggle #line3 {
+  transform: rotate(45deg) translate(-4px, -6px);
+}
+
+
+/* Main */
+
+#main {
+  clear: both;
+  padding-top: 30px;
+  margin: 50px;
+
+}
+
+#review {
+  margin: auto;
+  width: 960px;
+  display: flex;
+  justify-content: center;
+}
+
+
+/* Side Bar*/
+
+#sidebar {
+  background-color: #3B434D;
+  color: #EBEBEB;
+  margin: 0 20px;
+  padding: 40px;
+  width: 20%;
+}
+
+#sidebar li {
+  list-style: none;
+  line-height: 1.8;
+  text-align: center;
+}
+#sidebar li:before {
+  content: "#"; /* Insert content that looks like bullets */
+}
+
+.sidebar-title {
+  padding: 0 0 20px 0;
+  text-align: center;
+}
+
+/* Review Post list */
+
+#post-lists {
+  overflow: auto;
+  /*width: 60%;*/
+  height: 500px;
+  border: #3B434D;
+  border-style: dashed;
+  border-width: 2px;
+  border-radius: 10px;
+  padding: 0 30px;
+  color: #3B434D;
+}
+
+#post-lists >div{
+  margin: 40px 0;
+}
+
+.post-record {
+  border: #3B434D;
+  border-style: none;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.course-title {
+  font-size: 25px;
+}
+
+.course-id {
+  float: right;
+  font-size: 30px;
+  color: rgba(59,67,77,0.4);
+}
+
+.review-counts {
+  font-size: 16px;
+  color: rgba(59,67,77,0.7);
+}
+
+
+.alert a{
+  color: #FA9600;
+}
+
+
+/* Tab layout */
+
+/* Style the tab */
+.tab {
+  float: left;
+  display: flex;
+  flex-flow: column;
+  align-content: center;
+  justify-content: flex-start;
+  background-color: rgba(245,245,245,1);
+  width: 20%;
+  height: 500px;
+}
+
+
+#tab-title {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  margin: auto;
+  padding: 10px 20px;
+  width: 80%;
+  border: 1px dashed;
+  border-radius: 5px;
+  outline: none;
+  font-size: 14px;
+  text-align: center;
+  background-color: rgba(245,245,245,1);
+  color: #3B434D;
+  cursor: pointer;
+  overflow: auto;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover, button.active {
+  background-color: #3B434D;
+  color: rgba(245,245,245,1);
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+/* Style the tab content */
+.tabcontent {
+  float: left;
+  padding: 0 30px;
+  width: 70%;
+  height: 500px;
+  /*display: none;*/
+}
+
+/* Post layout */
+
+.post {
+  margin: auto;
+  width: 730px;
+  color: #3B434D;
+}
+
+.score {
+  padding-top: 1px;
+}
+.checked {
+  color: #FA9600;
+}
+
+.course-desc {
+  float: right;
+}
+
+.post-entry {
+  clear: both;
+  padding: 30px 0 20px 0;
+}
+
+.comments-box {
+  margin: 10px 0;
+  height: 600px;
+  overflow: auto;
+  border: #3B434D;
+  border-style: dashed;
+  border-width: 2px;
+  border-radius: 10px;
+  padding: 0 30px;
+  color: #3B434D;
+}
+
+.comment-title {
+  padding-bottom: 16px;
+  font-family: Source Sans Pro, sans-serif;
+  font-weight: bold;
+}
+
+.comment-post {
+  font-size: 15px;
+  margin: 20px 0;
+  padding: 30px;
+  background-color: rgba(59,67,77,0.1);
+  border-left-style: solid;
+  border-width: 7px;
+  border-radius: 7px;
+  text-align: justify;
+}
+
+.comment {
+  font-family: Source Sans Pro, sans-serif;
+}
+
+.comment-info {
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-family: Source Sans Pro, sans-serif;
+}
+
+.comment-form {
+  font-size: 14px;
+}
+
+.comment-form input[type=text], select {
+  font-size: 16px;
+  color: #707070;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.comment-form textarea{
+  font-size: 14px;
+  color: #707070;
+  width: 100%;
+  height: 200px;
+  padding: 20px;
+  margin: 0 0 20px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-sizing: border-box;
+  outline: none;
+  resize: none;
+
+}
+
+.comment-form input[type=submit] {
+  width: 100px;
+  background-color: rgba(245,245,245,1);
+  color: #3B434D;
+  margin: 5px 0;
+  cursor: pointer;
+  font-size: 16px;
+  text-decoration: underline;
+  align-content: center;
+  float:right;
+}
+
+.comment-form input[type=submit]:hover {
+  color: #FA9600;
+  transition: color .4s ease;
+}
+
+.comment-form {
+  line-height: 1.6;
+}
+
+/* Customize the label (the container) */
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  font-size: 14px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 60%
+}
+
+/* Hide the browser's default radio button */
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  height: 14px;
+  width: 14px;
+  background-color: #ccc;
+  border-radius: 50%;
+
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #3B434D;
+}
+
+/* When the radio button is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #3B434D;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.checkbox-container .checkmark:after {
+  top: 4px;
+  left: 4px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: white;
+}
+
+/* Footer */
+
+.footer{
+  margin: auto;
+  padding-top: 30px;
+  text-align: center;
+  font-size: 12px;
+  color: rgba(59,67,77,0.4);
+  position: absolute;
+  bottom:5%;
+  left: 50%;
+  transform: translateX(-50%)
+}
