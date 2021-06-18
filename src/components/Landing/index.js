@@ -1,7 +1,7 @@
 import './index.css';
 
 const Landing = () => (
-  <div className='landing'>
+  <div className='home'>
     <div className='home_nav'>
       <a className='home_nav_button' id='home_button' href='/'>Home</a>
       <a className='home_nav_button' id='review_button' href='/reviews'>Reviews</a>

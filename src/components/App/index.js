@@ -11,15 +11,13 @@ import AccountPage from '../Account';
 import Reviews from '../Reviews';
 import * as ROUTES from '../../constants/routes';
 import { withAuthentication } from '../Session';
-
+import Footer from "../Footer";
 const App = () => (
 
   <Router>
-    <div>
-      <Navigation />
+    <div className="App">
 
       <hr />
-
       <Route exact path={ROUTES.LANDING} component={LandingPage} />
       <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
       <Route path={ROUTES.SIGN_IN} component={SignInPage} />
@@ -31,6 +29,7 @@ const App = () => (
       <Route path={ROUTES.ACCOUNT} component={AccountPage} />
       <Route path={ROUTES.REVIEWS} component={Reviews} />
     </div>
+    {/*<Footer />*/}
   </Router>
 );
 

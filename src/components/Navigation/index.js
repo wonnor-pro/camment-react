@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { withFirebase } from '../Firebase';
 
 import { AuthUserContext } from '../Session';
 import SignOutButton from '../SignOut';
@@ -20,37 +21,56 @@ const Navigation = () => (
 );
 
 const NavigationAuth = ({ authUser }) => (
-  <ul>
-    <li>
-      <Link to={ROUTES.HOME}>Home</Link>
-    </li>
-    <li>
-      <Link to={ROUTES.REVIEWS}>Reviews</Link>
-    </li>
-    <li>
-      <Link to={ROUTES.ACCOUNT}>Account</Link>
-    </li>
-    <li>
-      <SignOutButton />
-    </li>
-  </ul>
+
+  <nav>
+    <div className="logo">
+      <div id="logo-title">
+        # Camment _
+      </div>
+      <div id="slogan">
+        Cambridge Course Review Platform
+      </div>
+    </div>
+    <ul className="nav-links">
+      <li><Link id="home_button" to={ROUTES.HOME}>Home</Link></li>
+      <li><Link id="review_button" to={ROUTES.REVIEWS}>Reviews</Link></li>
+      <li><Link id="user_button" to={ROUTES.ACCOUNT}>Account</Link></li>
+      <li><SignOutButton /></li>
+    </ul>
+    <div className="burger">
+      <div id="line1"></div>
+      <div id="line2"></div>
+      <div id="line3"></div>
+    </div>
+  </nav>
+
+
 );
 
 const NavigationNonAuth = () => (
-  <ul>
-    <li>
-      <Link to={ROUTES.LANDING}>Home</Link>
-    </li>
-    <li>
-      <Link to={ROUTES.REVIEWS}>Reviews</Link>
-    </li>
-    <li>
-      <Link to={ROUTES.SIGN_IN}>Sign In</Link>
-    </li>
-    <li>
-      <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
-    </li>
-  </ul>
+
+  <nav>
+    <div className="logo">
+      <div id="logo-title">
+        # Camment _
+      </div>
+      <div id="slogan">
+        Cambridge Course Review Platform
+      </div>
+    </div>
+    <ul className="nav-links">
+      <li><Link id="home_button" to={ROUTES.HOME}>Home</Link></li>
+      <li><Link id="review_button" to={ROUTES.REVIEWS}>Reviews</Link></li>
+      <li><Link id="signin_button" to={ROUTES.SIGN_IN}>Sign In</Link></li>
+      <li><Link id="signup_button" to={ROUTES.SIGN_UP}>Sign Up</Link></li>
+    </ul>
+    <div className="burger">
+      <div id="line1"></div>
+      <div id="line2"></div>
+      <div id="line3"></div>
+    </div>
+  </nav>
+
 );
 
 export default Navigation;
