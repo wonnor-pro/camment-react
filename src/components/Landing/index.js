@@ -1,5 +1,3 @@
-import './index.css';
-
 const Landing = () => (
   <div className='home'>
     <div className='home_nav'>

@@ -1,12 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { withFirebase } from '../Firebase';
 
 import { AuthUserContext } from '../Session';
 import SignOutButton from '../SignOut';
 import * as ROUTES from '../../constants/routes';
-import * as ROLES from '../../constants/roles';
-import Reviews from '../Reviews';
+
 
 const Navigation = () => (
   <AuthUserContext.Consumer>

@@ -11,6 +11,7 @@ import AccountPage from '../Account';
 import Reviews from '../Reviews';
 import * as ROUTES from '../../constants/routes';
 import { withAuthentication } from '../Session';
+import Post from "../Post";
 import Footer from "../Footer";
 const App = () => (
 
@@ -28,6 +29,7 @@ const App = () => (
       <Route path={ROUTES.HOME} component={HomePage} />
       <Route path={ROUTES.ACCOUNT} component={AccountPage} />
       <Route path={ROUTES.REVIEWS} component={Reviews} />
+      <Route path="/Post" component={Post} />
     </div>
     {/*<Footer />*/}
   </Router>
