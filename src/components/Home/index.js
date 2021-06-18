@@ -2,7 +2,7 @@ import './index.css';
 import React from 'react';
 import { compose } from 'recompose';
 
-import { withAuthorization, withEmailVerification } from '../Session';
+import { withAuthorization} from '../Session';
 
 const HomePage = () => (
   <div className='home'>
@@ -24,6 +24,5 @@ const HomePage = () => (
 const condition = authUser => !!authUser;
 
 export default compose(
-  withEmailVerification,
   withAuthorization(condition),
 )(HomePage);
