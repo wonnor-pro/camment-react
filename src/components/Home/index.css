@@ -1,0 +1,49 @@
+.home {
+    width: 960px;
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -60%);
+    padding: 0 0 0 0;
+    margin: auto;
+
+}
+
+
+.home_nav{
+    display: flex;
+    justify-content: space-around;
+    width: 600px;
+    margin: auto;
+    padding-bottom: 40px;
+
+}
+
+
+.home_nav_button{
+    font-size: 20px;
+    align-content: center;
+    text-align: center;
+}
+
+.home #sign-out{
+    font-size: 20px;
+    align-content: center;
+    text-align: center;
+}
+
+.home_title{
+    clear: both;
+    margin: 0 20px 0 20px;
+    padding: 40px 0 40px 0;
+    text-align: center;
+    background-color: rgba(59,67,77,1);
+    color: #EBEBEB;
+    font-size: 40px;
+}
+
+.home_slogan{
+    padding-top: 20%;
+    text-align: center;
+    color: #707070;
+}

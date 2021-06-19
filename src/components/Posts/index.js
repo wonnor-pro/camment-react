@@ -1,4 +1,6 @@
-const Posts = () => {
+
+
+const Index = () => {
   return (
     <div className="posts">
       <div id="main">
@@ -15,37 +17,37 @@ const Posts = () => {
                 <p className="course-id">3F1</p>
                 <p className="review-counts">145 reviews</p>
                 <div className="score_wrapper">★★★☆☆</div>
-                <a href="/" className="course-title">Signals and Systems</a>
+                <a href="/Post" className="course-title">Signals and Systems</a>
               </div>
               <div className="post-record">
                 <p className="course-id">3F2</p>
                 <p className="review-counts">98 reviews</p>
                 <div className="score_wrapper">★★☆☆☆</div>
-                <a href="/" className="course-title">Systems and Control</a>
+                <a href="/Post" className="course-title">Systems and Control</a>
               </div>
               <div className="post-record">
                 <p className="course-id">3F1</p>
                 <p className="review-counts">145 reviews</p>
                 <div className="score_wrapper">★★★☆☆</div>
-                <a href="/" className="course-title">Signals and Systems</a>
+                <a href="/Post" className="course-title">Signals and Systems</a>
               </div>
               <div className="post-record">
                 <p className="course-id">3F2</p>
                 <p className="review-counts">98 reviews</p>
                 <div className="score_wrapper">★★☆☆☆</div>
-                <a href="/" className="course-title">Systems and Control</a>
+                <a href="/Post" className="course-title">Systems and Control</a>
               </div>
               <div className="post-record">
                 <p className="course-id">3F1</p>
                 <p className="review-counts">145 reviews</p>
                 <div className="score_wrapper">★★★☆☆</div>
-                <a href="/" className="course-title">Signals and Systems</a>
+                <a href="/Post" className="course-title">Signals and Systems</a>
               </div>
               <div className="post-record">
                 <p className="course-id">3F2</p>
                 <p className="review-counts">98 reviews</p>
                 <div className="score_wrapper">★★☆☆☆</div>
-                <a href="/" className="course-title">Systems and Control</a>
+                <a href="/Post" className="course-title">Systems and Control</a>
               </div>
             </div>
           </div>
@@ -55,4 +57,4 @@ const Posts = () => {
   );
 }
 
-export default Posts;
+export default Index;
