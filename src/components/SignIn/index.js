@@ -8,16 +8,44 @@ import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
 
 const SignInPage = () => (
-  <div>
+  <div id="main">
+
     <div id="title">
       <h1># Camment _</h1>
     </div>
 
-    <h1>Sign In</h1>
-    <SignInForm />
-    <PasswordForgetLink />
-    <SignUpLink />
+    <div id="nav">
+      <div className="nav-button" id="home-button"><a href={ROUTES.HOME}>Home</a></div>
+      <div className="nav-button" id="review-button"><a href={ROUTES.REVIEWS}>Reviews</a></div>
+    </div>
+    <div id="user-nav">
+      <div className="user-nav-button" id="logout-button"><a href={ROUTES.SIGN_UP}>Register</a></div>
+    </div>
+
+
+    <div className="user-box" id="user-container">
+      <div className="user-box user-title" id="user-portal">User Login</div>
+      <div className="user-section">
+        <SignInForm />
+      </div>
+    </div>
+
+    <div id="account-slogan">
+      <p>Cambridge Course Review Platform</p>
+    </div>
+
   </div>
+
+  // {/*// <div>*/}
+  // {/*//   <div id="title">*/}
+  // {/*//     <h1># Camment _</h1>*/}
+  // {/*//   </div>*/}
+  // {/*//*/}
+  // {/*//   <h1>Sign In</h1>*/}
+  // {/*//   <SignInForm />*/}
+  // {/*//   <PasswordForgetLink />*/}
+  // {/*//   <SignUpLink />*/}
+  // {/*// </div>*/}
 );
 
 const INITIAL_STATE = {
@@ -61,6 +89,8 @@ class SignInFormBase extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
+        <br/>
+        <div>Email</div>
         <input
           name="email"
           value={email}
@@ -68,6 +98,9 @@ class SignInFormBase extends Component {
           type="text"
           placeholder="Email Address"
         />
+        <br/>
+        <br/>
+        <div>Password</div>
         <input
           name="password"
           value={password}
@@ -75,8 +108,10 @@ class SignInFormBase extends Component {
           type="password"
           placeholder="Password"
         />
-        <button disabled={isInvalid} type="submit">
-          Sign In
+        <br/>
+
+        <button disabled={isInvalid} type="submit" id="login-button">
+          Login
         </button>
 
         {error && <p>{error.message}</p>}

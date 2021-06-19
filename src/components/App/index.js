@@ -12,6 +12,7 @@ import Reviews from '../Reviews';
 import * as ROUTES from '../../constants/routes';
 import { withAuthentication } from '../Session';
 import Post from "../Post";
+import Login from "../Login";
 import Footer from "../Footer";
 const App = () => (
 
@@ -30,6 +31,7 @@ const App = () => (
       <Route path={ROUTES.ACCOUNT} component={AccountPage} />
       <Route path={ROUTES.REVIEWS} component={Reviews} />
       <Route path="/Post" component={Post} />
+      <Route path={ROUTES.LOG_IN} component={Login} />
     </div>
     {/*<Footer />*/}
   </Router>

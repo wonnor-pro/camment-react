@@ -1,5 +1,6 @@
 import Navigation from "../Navigation";
 import React from "react";
+import CommentForm from "./CommentForm";
 
 const Post = () => {
   return (
@@ -82,9 +83,10 @@ const Post = () => {
           <h3>Post your review</h3>
         </div>
         <div className="comment-input-group">
-          <form className="comment-form">
-            form here
-          </form>
+          <CommentForm />
+          {/*<form className="comment-form">*/}
+          {/*  form here*/}
+          {/*</form>*/}
         </div>
       </div>
     </div>
