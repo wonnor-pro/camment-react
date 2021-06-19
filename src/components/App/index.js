@@ -32,6 +32,7 @@ const App = () => (
       <Route path={ROUTES.REVIEWS} component={Reviews} />
       <Route path="/Post" component={Post} />
       <Route path={ROUTES.LOG_IN} component={Login} />
+      <Route path="/Post/:ID" component={Post} />
     </div>
     {/*<Footer />*/}
   </Router>
