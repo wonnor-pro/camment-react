@@ -119,10 +119,29 @@ a::after {
 #user-section{
     padding-top: 10px;
 }
+
 .user-text{
     font-size: 18px;
 }
 
+.account-heading{
+    font-size: 18px;
+    padding: 12px 0;
+}
+
+.text-secondary{
+    color: #707070;
+    width: 60%;
+    border-left-style: solid;
+    border-left-color: #FA9600;
+    border-left-width: 7px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin: auto;
+    background: white;
+    padding: 12px 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 .form-control-label {
     text-align: left;
 }
@@ -211,6 +230,8 @@ button[type=submit] {
     text-align: right;
     background-color: rgba(59,67,77,0);
     padding: 0;
+    pointer-events:none;
+    display: none;
 }
 
 

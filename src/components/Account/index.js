@@ -44,7 +44,6 @@ const AccountPage = () => (
         <div id="nav">
           <div className="nav-button" id="home-button"><a href={ROUTES.HOME}>Home</a></div>
           <div className="nav-button" id="review-button"><a href={ROUTES.REVIEWS}>Reviews</a></div>
-          <div className="nav-button" id="user-button"><a href={ROUTES.ACCOUNT}>Account</a></div>
         </div>
         <div id="user-nav">
           <div className="user-nav-button" id="post-button"><a href={ROUTES.MY_POSTS}>My Posts</a></div>
@@ -57,15 +56,20 @@ const AccountPage = () => (
           <div className="content-section">
             <div className="media">
               <div className="media-body">
-                <p className="account-heading">Account</p>
+                <p className="account-heading">Username</p>
+                <p className="text-secondary">Username</p>
+                <p className="account-heading">Email</p>
                 <p className="text-secondary">{authUser.email}</p>
-                {/*<PasswordChangeForm />*/}
+                <PasswordChangeForm />
                 {/*<LoginManagement authUser={authUser} />*/}
               </div>
             </div>
           </div>
         </div>
 
+        <div className="decoration">
+          {"<?"}
+        </div>
         <div id="account-slogan">
           <p>Cambridge Course Review Platform</p>
         </div>

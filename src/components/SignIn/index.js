@@ -29,6 +29,9 @@ const SignInPage = () => (
         <SignInForm />
       </div>
     </div>
+    <div className="decoration">
+      {"<?"}
+    </div>
 
     <div id="account-slogan">
       <p>Cambridge Course Review Platform</p>
