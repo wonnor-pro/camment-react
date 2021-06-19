@@ -1,6 +1,7 @@
 import app from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
+require('firebase/firestore');
 
 const config = {
   apiKey: "AIzaSyCkarNMuv0dOHIM6rf8ig601FbqGaHE6ig",
@@ -26,6 +27,7 @@ class Firebase {
 
     this.auth = app.auth();
     this.db = app.database();
+    this.fs = app.firestore();
 
     /* Social Sign In Method Provider */
 
@@ -33,6 +35,23 @@ class Firebase {
     this.facebookProvider = new app.auth.FacebookAuthProvider();
     this.twitterProvider = new app.auth.TwitterAuthProvider();
   }
+
+  getFs = () => this.fs;
+
+  openFsUser = () => {
+    const userRef = this.fs.collection("users").doc('yy452');
+    userRef.get().then((doc) => {
+      if (doc.exists) {
+        console.log("Document data:", doc.data());
+      } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+      }
+    }).catch((error) => {
+      console.log("Error getting document:", error);
+    });
+  }
+
 
   // *** Auth API ***
 

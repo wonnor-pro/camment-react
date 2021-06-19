@@ -1,9 +1,20 @@
 import Navigation from "../Navigation";
 import React from "react";
 import CommentForm from "./CommentForm";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar as faStarS, faStarHalf } from '@fortawesome/free-solid-svg-icons';
+import { faStar as faStarR } from '@fortawesome/free-regular-svg-icons';
+import {withFirebase} from "../Firebase";
 
-const Post = () => {
-  return (
+class Post extends React.Component {
+
+  constructor(props) {
+    super(props);
+    // alert(this.props.match.params.ID);
+  }
+
+  render (){
+    return (
     <div className="Post">
       <Navigation />
       <div className="post">
@@ -16,7 +27,7 @@ const Post = () => {
             Course Syllabus
           </a>
           <div className="score">
-            ★★★☆☆
+            <FontAwesomeIcon className="yellow" icon={faStarS} /><FontAwesomeIcon className="yellow" icon={faStarS} /><FontAwesomeIcon icon={faStarR} /><FontAwesomeIcon icon={faStarR} /><FontAwesomeIcon icon={faStarR} />
           </div>
         </div>
         <div className="post-entry">
@@ -90,7 +101,8 @@ const Post = () => {
         </div>
       </div>
     </div>
-  );
+    )
+  }
 }
 
 export default Post;

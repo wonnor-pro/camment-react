@@ -8,6 +8,7 @@ import {
   withAuthorization
 } from '../Session';
 import { withFirebase } from '../Firebase';
+
 import { PasswordForgetForm } from '../PasswordForget';
 import PasswordChangeForm from '../PasswordChange';
 import Footer from "../Footer";
@@ -57,7 +58,7 @@ const AccountPage = () => (
             <div className="media">
               <div className="media-body">
                 <p className="account-heading">Username</p>
-                <p className="text-secondary">Username</p>
+                <p className="text-secondary">{authUser.email.slice(0,authUser.email.indexOf('@'))}</p>
                 <p className="account-heading">Email</p>
                 <p className="text-secondary">{authUser.email}</p>
                 <PasswordChangeForm />

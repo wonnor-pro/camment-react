@@ -38,23 +38,13 @@ const SignInPage = () => (
     </div>
 
   </div>
-
-  // {/*// <div>*/}
-  // {/*//   <div id="title">*/}
-  // {/*//     <h1># Camment _</h1>*/}
-  // {/*//   </div>*/}
-  // {/*//*/}
-  // {/*//   <h1>Sign In</h1>*/}
-  // {/*//   <SignInForm />*/}
-  // {/*//   <PasswordForgetLink />*/}
-  // {/*//   <SignUpLink />*/}
-  // {/*// </div>*/}
 );
 
 const INITIAL_STATE = {
   email: '',
   password: '',
   error: null,
+  username: '',
 };
 
 
@@ -66,12 +56,13 @@ class SignInFormBase extends Component {
   }
 
   onSubmit = event => {
-    const { email, password } = this.state;
-
+    const { email, password} = this.state;
     this.props.firebase
       .doSignInWithEmailAndPassword(email, password)
       .then(() => {
         this.setState({ ...INITIAL_STATE });
+        const at_index = this.state.email.indexOf('@');
+        this.state.username = this.state.email.slice(0,at_index);
         this.props.history.push(ROUTES.HOME);
       })
       .catch(error => {
@@ -86,7 +77,7 @@ class SignInFormBase extends Component {
   };
 
   render() {
-    const { email, password, error } = this.state;
+    const { email, password, error, username } = this.state;
 
     const isInvalid = password === '' || email === '';
 

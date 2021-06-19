@@ -1,4 +1,9 @@
-import React from "react";
+import React from 'react';
+import { compose } from 'recompose';
+import { withFirebase } from '../Firebase';
+import fb from "firebase/app";
+import Firebase from "../Firebase/firebase"
+
 class CommentForm extends React.Component {
   constructor(props) {
     super(props);
@@ -22,11 +27,39 @@ class CommentForm extends React.Component {
   }
 
   handleSubmit(event) {
+    const {currentUser} = fb.auth();
+    const crsid = currentUser.email.slice(0,currentUser.email.indexOf('@'));
+    console.log(crsid);
+
+    // const userRef = this.props.firebase.getFs.collection("users").doc('yy452');
+    // userRef.get().then((doc) => {
+    //   if (doc.exists) {
+    //     console.log("Document data:", doc.data());
+    //   } else {
+    //     // doc.data() will be undefined in this case
+    //     console.log("No such document!");
+    //   }
+    // }).catch((error) => {
+    //   console.log("Error getting document:", error);
+    // });
+    // userRef.get().then((doc) => {
+    //   if (doc.exists) {
+    //     console.log("Document data:", doc.data());
+    //   } else {
+    //     // doc.data() will be undefined in this case
+    //     console.log("No such document!");
+    //   }
+    // }).catch((error) => {
+    //   console.log("Error getting document:", error);
+    // });
+
     alert('A comment was submitted: ' + this.state.comment + '\nCourse Taken in ' + this.state.year);
     event.preventDefault();
+
   }
 
   render() {
+    alert(this.props.firebase.openFsUser);
     return (
       <form className="comment-form" onSubmit={this.handleSubmit}>
         <label>
@@ -48,4 +81,6 @@ class CommentForm extends React.Component {
   }
 }
 
-export default CommentForm;
+const commentManager = withFirebase(CommentForm);
+
+export default {commentManager};
