@@ -11,7 +11,7 @@ const Login = () => (
       <h1># Camment _</h1>
     </div>
     <div id="nav">
-      <div className="nav-button" id="home-button"><a href={ROUTES.HOME}>Home</a></div>
+      <div className="nav-button" id="home-button"><a href={ROUTES.LANDING}>Home</a></div>
       <div className="nav-button" id="review-button"><a href={ROUTES.REVIEWS}>Reviews</a></div>
     </div>
 
