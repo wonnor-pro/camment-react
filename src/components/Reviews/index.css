@@ -195,6 +195,9 @@ nav {
 
 /* Review Post list */
 
+.yellow {
+  color: #FA9600;
+}
 #post-lists {
   overflow: auto;
   /*width: 60%;*/

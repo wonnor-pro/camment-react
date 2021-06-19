@@ -1,6 +1,9 @@
 import Navigation from "../Navigation";
 import React from "react";
 import CommentForm from "./CommentForm";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar as faStarS, faStarHalf } from '@fortawesome/free-solid-svg-icons';
+import { faStar as faStarR } from '@fortawesome/free-regular-svg-icons';
 
 const Post = () => {
   return (
@@ -16,7 +19,7 @@ const Post = () => {
             Course Syllabus
           </a>
           <div className="score">
-            ★★★☆☆
+            <FontAwesomeIcon className="yellow" icon={faStarS} /><FontAwesomeIcon className="yellow" icon={faStarS} /><FontAwesomeIcon icon={faStarR} /><FontAwesomeIcon icon={faStarR} /><FontAwesomeIcon icon={faStarR} />
           </div>
         </div>
         <div className="post-entry">
