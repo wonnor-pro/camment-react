@@ -159,7 +159,7 @@ button[type=submit] {
     font-size: 16px;
     /*text-decoration: underline;*/
     align-content: center;
-    border: 1px solid #ccc;
+    border: 1px dashed #ccc;
     border-radius: 20px;
     box-sizing: border-box;
     outline: none;
@@ -170,6 +170,7 @@ button[type=submit]:hover {
     color: #3B434D;
     background: #EBEBEB;
     transition: color .2s ease;
+    border: 1px solid #ccc;
 }
 
 button[type=submit] {

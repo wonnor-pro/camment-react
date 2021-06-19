@@ -300,6 +300,8 @@ nav {
   margin: auto;
   width: 730px;
   color: #3B434D;
+  padding-top: 70px;
+  padding-bottom: 70px;
 }
 
 .score {

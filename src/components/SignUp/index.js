@@ -7,10 +7,33 @@ import * as ROUTES from '../../constants/routes';
 import * as ROLES from '../../constants/roles';
 
 const SignUpPage = () => (
-  <div>
-    <h1>SignUp</h1>
-    <SignUpForm />
+  <div id="main">
+
+    <div id="title">
+      <h1># Camment _</h1>
+    </div>
+    <div id="nav">
+      <div className="nav-button" id="home-button"><a href={ROUTES.HOME}>Home</a></div>
+      <div className="nav-button" id="review-button"><a href={ROUTES.REVIEWS}>Reviews</a></div>
+      <div className="nav-button" id="user-button"><a href={ROUTES.LOG_IN}>Login</a></div>
+    </div>
+
+
+    <div className="user-box" id="user-container">
+      <div className="user-box user-title" id="user-portal">User Register</div>
+      <div className="user-section">
+        <SignUpForm />
+      </div>
+    </div>
+
+    <div id="account-slogan">
+      <p>Cambridge Course Review Platform</p>
+    </div>
   </div>
+  // <div>
+  //   <h1>SignUp</h1>
+  //   <SignUpForm />
+  // </div>
 );
 
 const INITIAL_STATE = {
@@ -101,6 +124,8 @@ class SignUpFormBase extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
+        <br/>
+        <div>Username</div>
         <input
           name="username"
           value={username}
@@ -108,6 +133,7 @@ class SignUpFormBase extends Component {
           type="text"
           placeholder="Full Name"
         />
+        <div>Email</div>
         <input
           name="email"
           value={email}
@@ -115,6 +141,7 @@ class SignUpFormBase extends Component {
           type="text"
           placeholder="Email Address"
         />
+        <div>Password</div>
         <input
           name="passwordOne"
           value={passwordOne}
@@ -122,6 +149,8 @@ class SignUpFormBase extends Component {
           type="password"
           placeholder="Password"
         />
+        <br/>
+        <div>Confirm Password</div>
         <input
           name="passwordTwo"
           value={passwordTwo}
@@ -129,15 +158,7 @@ class SignUpFormBase extends Component {
           type="password"
           placeholder="Confirm Password"
         />
-        <label>
-          Admin:
-          <input
-            name="isAdmin"
-            type="checkbox"
-            checked={isAdmin}
-            onChange={this.onChangeCheckbox}
-          />
-        </label>
+        <br/>
         <button disabled={isInvalid} type="submit">
           Sign Up
         </button>

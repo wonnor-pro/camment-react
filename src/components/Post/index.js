@@ -6,7 +6,7 @@ const Post = () => {
   return (
     <div className="Post">
       <Navigation />
-      <div className="post" id="main">
+      <div className="post">
         <div className="course-info">
           <p className="course-id">3F1</p>
           <p className="review-counts">145 reviews</p>

@@ -59,8 +59,8 @@ const NavigationNonAuth = () => (
     <ul className="nav-links">
       <li><Link id="home_button" to={ROUTES.HOME}>Home</Link></li>
       <li><Link id="review_button" to={ROUTES.REVIEWS}>Reviews</Link></li>
-      <li><Link id="signin_button" to={ROUTES.SIGN_IN}>Sign In</Link></li>
-      <li><Link id="signup_button" to={ROUTES.SIGN_UP}>Sign Up</Link></li>
+      <li><Link id="signin_button" to={ROUTES.SIGN_IN}>Log In</Link></li>
+      <li><Link id="signup_button" to={ROUTES.SIGN_UP}>Register</Link></li>
     </ul>
     <div className="burger">
       <div id="line1"></div>
