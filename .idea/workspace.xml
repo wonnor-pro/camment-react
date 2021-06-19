@@ -2,61 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17bb37c9-cb0e-4de6-a219-9b0313f94abc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.github/FUNDING.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firebase.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Account/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Account/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Admin/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/App/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Firebase/context.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Firebase/firebase.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Firebase/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Footer/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Home/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Home/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Landing/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Login/images/email.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Login/images/logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Login/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Messages/MessageItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Messages/MessageList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Messages/Messages.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Messages/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Navigation/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/PasswordChange/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/PasswordForget/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Post/CommentForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Post/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Reviews/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Reviews/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Session/context.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Session/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Session/withAuthentication.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Session/withAuthorization.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Session/withEmailVerification.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/SignIn/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/SignIn/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/SignOut/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/SignUp/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Users/UserItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Users/UserList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Users/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/constants/roles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/constants/routes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/serviceWorker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Footer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Home.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Navbar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Posts/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Reviews.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,6 +72,7 @@
       <option name="presentableId" value="Default" />
       <updated>1623621482898</updated>
       <workItem from="1623621484312" duration="11245000" />
+      <workItem from="1624066092779" duration="4000" />
     </task>
     <servers />
   </component>
