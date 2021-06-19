@@ -30,7 +30,8 @@ const App = () => (
       <Route path={ROUTES.HOME} component={HomePage} />
       <Route path={ROUTES.ACCOUNT} component={AccountPage} />
       <Route path={ROUTES.REVIEWS} component={Reviews} />
-      <Route path="/Post" component={Post} />
+      <Route exact path="/Post" component={Post} />
+      <Route path="/Post/:ID" component={Post} />
       <Route path={ROUTES.LOG_IN} component={Login} />
     </div>
     {/*<Footer />*/}
