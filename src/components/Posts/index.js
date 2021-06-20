@@ -9,8 +9,8 @@ class PostsBase extends React.Component {
   constructor(props) {
     super(props);
     this.dispSwitch = {
-      "3A": "null",
-      "3F": "null"
+      "3A": "none",
+      "3F": "none"
     };
 
     this.coursesList = {
@@ -63,8 +63,8 @@ class PostsBase extends React.Component {
           <div id="review">
             <div className="tab">
               <h3 id="tab-title">Part IIA</h3>
-              <button className="tablinks" id="3A" onMouseOver={this.openModule}>3A</button>
-              <button className="tablinks" id="3F" onMouseOver={this.openModule}>3F</button>
+              <button className="tablinks" id="3A" onMouseOver={this.openModule} onClick={this.openModule}>3A</button>
+              <button className="tablinks" id="3F" onMouseOver={this.openModule} onClick={this.openModule}>3F</button>
             </div>
             <div id="3A" className="tabcontent" style={{display: this.dispSwitch["3A"]}}>
               <div id="post-lists">
