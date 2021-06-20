@@ -1,17 +1,41 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faStar as faStarS, faStar, faStarHalf} from '@fortawesome/free-solid-svg-icons';
 import {faStar as faStarR} from "@fortawesome/free-regular-svg-icons";
 import React from "react";
+import {withFirebase} from "../Firebase";
 
-class Posts extends React.Component {
+class PostsBase extends React.Component {
 
   constructor(props) {
     super(props);
     this.dispSwitch = {
-      "3A": "none",
-      "3F": "none"
+      "3A": "null",
+      "3F": "null"
     };
+
+    this.coursesList = {
+      "3A": [],
+      "3F": []
+    }
     this.openModule = this.openModule.bind(this);
+    this.readModule = this.readModule.bind(this);
+    console.log("this is posts");
+    console.log(this.props);
+  }
+
+  readModule = () => {
+    const coursesRef = this.props.firebase.fs.collection("courses");
+    coursesRef.where("course_id", "<=", "3A6")
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          // console.log(doc.id, " => ", doc.data());
+          this.coursesList['3A'].push(doc.data())
+        });
+
+        console.log(this.coursesList['3A']);
+      })
   }
 
   openModule(event) {
@@ -32,6 +56,7 @@ class Posts extends React.Component {
   }
 
   render() {
+    this.readModule();
     return (
       <div className="posts">
         <div id="main">
@@ -147,4 +172,6 @@ class Posts extends React.Component {
   }
 }
 
-export default Posts;
+const Posts = withFirebase(PostsBase);
+
+export {Posts};

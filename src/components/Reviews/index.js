@@ -1,4 +1,4 @@
-import Posts from "../Posts/index";
+import {Posts} from "../Posts/index";
 import './index.css';
 import Navigation from "../Navigation";
 import React from "react";
