@@ -57,7 +57,7 @@ const AccountPage = () => (
             <div className="media">
               <div className="media-body">
                 <p className="account-heading">Username</p>
-                <p className="text-secondary">Username</p>
+                <p className="text-secondary">{authUser.email.slice(0, authUser.email.indexOf('@'))}</p>
                 <p className="account-heading">Email</p>
                 <p className="text-secondary">{authUser.email}</p>
                 <PasswordChangeForm />

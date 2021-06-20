@@ -1,6 +1,7 @@
 import app from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
+import 'firebase/firestore';
 
 const config = {
   apiKey: "AIzaSyCkarNMuv0dOHIM6rf8ig601FbqGaHE6ig",
@@ -26,6 +27,7 @@ class Firebase {
 
     this.auth = app.auth();
     this.db = app.database();
+    this.fs = app.firestore();
 
     /* Social Sign In Method Provider */
 
