@@ -9,4 +9,5 @@ export const ADMIN_DETAILS = '/admin/:id';
 export const REVIEWS = '/reviews';
 export const MY_POSTS = '/home';
 export const LOG_IN = '/log_in';
-export const RAVEN = '/sign_in'
+export const RAVEN = '/raven/login'
+export const RAVEN_LANDING = '/landing-raven'

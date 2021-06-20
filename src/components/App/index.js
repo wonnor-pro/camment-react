@@ -13,6 +13,7 @@ import * as ROUTES from '../../constants/routes';
 import { withAuthentication } from '../Session';
 import Post from "../Post";
 import Login from "../Login";
+import RavenLanding from "../Raven";
 import Footer from "../Footer";
 const App = () => (
 
@@ -33,6 +34,7 @@ const App = () => (
       <Route exact path="/Post" component={Post} />
       <Route path="/Post/:ID" component={Post} />
       <Route path={ROUTES.LOG_IN} component={Login} />
+      <Route path={ROUTES.RAVEN_LANDING} component={RavenLanding} />
     </div>
     {/*<Footer />*/}
   </Router>
