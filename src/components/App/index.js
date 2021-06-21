@@ -1,7 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route} from 'react-router-dom';
 
-import Navigation from '../Navigation';
 import LandingPage from '../Landing';
 import SignUpPage from '../SignUp';
 import SignInPage from '../SignIn';
@@ -11,7 +10,7 @@ import AccountPage from '../Account';
 import Reviews from '../Reviews';
 import * as ROUTES from '../../constants/routes';
 import { withAuthentication } from '../Session';
-import Post from "../Post";
+import {Post} from "../Post";
 import Login from "../Login";
 import RavenLanding from "../Raven";
 import MyPost from "../MyPost";
