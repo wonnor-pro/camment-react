@@ -2,20 +2,26 @@ import * as ROUTES from "../../constants/routes";
 import SignOutButton from "../SignOut";
 import PasswordChangeForm from "../PasswordChange";
 import React, { Component } from 'react';
-
+import {withFirebase} from "../Firebase";
 const empty =require('is-empty');
 
 
 class RavenLanding extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = { ravenData: {}};
   }
 
   componentDidMount() {
     fetch("/raven/user")
       .then(res => res.json())
-      .then(result => this.setState = ({ ravenData: result }))
+      .then(result => {
+          this.setState = ({ ravenData: result });
+          console.log(this.props.firebase);
+          console.log(result);
+          console.log(result.crsid);
+          console.log(result.sig);
+      })
       .catch(err => {
         console.log(err);
       });
@@ -50,6 +56,9 @@ class RavenLanding extends Component {
                   <p className="text-secondary">{ravenData.crsid}</p>
                   <p className="account-heading">Current Student</p>
                   <p className="text-secondary">{ravenData.isCurrent ? "Yes": "No"}</p>
+                  <p className="account-heading">signature</p>
+                  <p className="text-secondary">{ravenData.sig}</p>
+
                 </div>
               }
               {
@@ -83,4 +92,4 @@ class RavenLanding extends Component {
   }
 };
 
-export default RavenLanding;
+export default withFirebase(RavenLanding);

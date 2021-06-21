@@ -15,7 +15,7 @@ passport.use(new Raven({
 }, function (crsid, response, cb) {
   console.dir(response);
   console.log('Login with crsid: ' + crsid);
-  cb(null, {crsid: crsid, isCurrent: response.isCurrent});
+  cb(null, {crsid: crsid, isCurrent: response.isCurrent, sig: response.sig});
 }));
 
 passport.serializeUser((user, cb) => {
