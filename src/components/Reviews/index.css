@@ -430,6 +430,40 @@ nav {
   line-height: 1.6;
 }
 
+
+
+/* My Posts */
+
+.mypost-title {
+  font-size: 25px;
+}
+
+.my-id {
+  float: right;
+  font-size: 30px;
+  color: rgba(59,67,77,0.4);
+}
+
+.post-counts {
+  font-size: 16px;
+  color: rgba(59,67,77,0.7);
+}
+
+.post-delete {
+  border: dashed #3B434D 2px;
+  color: #3B434D;
+  border-radius: 3px;
+  padding: 0 6px;
+}
+
+.post-delete:hover {
+  border: dashed #3B434D 2px;
+  background: #3B434D;
+  color: #EBEBEB;
+  border-radius: 3px;
+  padding: 0 6px;
+}
+
 /* Customize the label (the container) */
 .checkbox-container {
   display: block;
