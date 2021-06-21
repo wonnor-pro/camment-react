@@ -5,9 +5,10 @@ const RavenProvider = ({ children }) => {
   const [raven, setRaven] = useState({});
 
   useEffect(() => {
+    console.log("on useEffect");
     fetch("/raven/user")
       .then(res => res.json())
-      .then(res => {setRaven(res); console.log("Inside Raven Provider"); console.log(res);})
+      .then(res => console.log(res))
       .catch(err => {
         console.log(err);
       });
