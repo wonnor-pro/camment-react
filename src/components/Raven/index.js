@@ -1,33 +1,49 @@
 import * as ROUTES from "../../constants/routes";
 import SignOutButton from "../SignOut";
 import PasswordChangeForm from "../PasswordChange";
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {withFirebase} from "../Firebase";
-const empty =require('is-empty');
+
+const empty = require('is-empty');
 
 
 class RavenLanding extends Component {
   constructor(props) {
     super(props);
-    this.state = { ravenData: {}};
+    this.state = {ravenData: {}};
   }
 
   componentDidMount() {
     fetch("/raven/user")
       .then(res => res.json())
       .then(result => {
-          this.setState = ({ ravenData: result });
-          console.log(this.props.firebase);
-          console.log(result);
-          console.log(result.crsid);
-          console.log(result.sig);
+        this.setState = ({ravenData: result});
+        console.log(this.props.firebase);
+        // console.log(result);
+        console.log(result.crsid);
+        console.log(result.sig);
+        const email = result.crsid + "@cam.ac.uk";
+        this.props.firebase.doSignInWithEmailAndPassword(email, "135100")
+          // .then(() => {
+          //   this.props.firebase.doSignInWithEmailAndPassword(email, "135100")
+          //     .then(() => {
+          //       // this.props.history.push(ROUTES.HOME);
+          //     })
+          // })
+          .catch(() => {
+            this.props.firebase.doCreateUserWithEmailAndPassword(email, "135100")
+              .then(() => {
+                // this.props.history.push(ROUTES.HOME);
+              })
+          });
+
       })
       .catch(err => {
         console.log(err);
       });
   }
 
-  render () {
+  render() {
     const ravenData = this.setState.ravenData;
     return (
       <div id="main">
@@ -55,7 +71,7 @@ class RavenLanding extends Component {
                   <p className="account-heading">CRSID</p>
                   <p className="text-secondary">{ravenData.crsid}</p>
                   <p className="account-heading">Current Student</p>
-                  <p className="text-secondary">{ravenData.isCurrent ? "Yes": "No"}</p>
+                  <p className="text-secondary">{ravenData.isCurrent ? "Yes" : "No"}</p>
                   <p className="account-heading">signature</p>
                   <p className="text-secondary">{ravenData.sig}</p>
 
