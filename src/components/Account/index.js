@@ -60,7 +60,7 @@ const AccountPage = () => (
                 <p className="text-secondary">{authUser.email.slice(0, authUser.email.indexOf('@'))}</p>
                 <p className="account-heading">Email</p>
                 <p className="text-secondary">{authUser.email}</p>
-                <PasswordChangeForm />
+                {/*<PasswordChangeForm />*/}
                 {/*<LoginManagement authUser={authUser} />*/}
               </div>
             </div>

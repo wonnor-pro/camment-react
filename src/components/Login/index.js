@@ -17,11 +17,11 @@ const Login = () => (
 
     <div className="user-box" id="user-container">
       <div className="user-box user-title">User Login</div>
-      <div className="user-box login-group">
-        <img className="user-box login-img" src={email_svg} alt="email logo" />
-        &nbsp;&nbsp;&nbsp;
-        <a className="user-box user-text" href={ROUTES.SIGN_IN}>Login or Register via Email</a>
-      </div>
+      {/*<div className="user-box login-group">*/}
+      {/*  <img className="user-box login-img" src={email_svg} alt="email logo" />*/}
+      {/*  &nbsp;&nbsp;&nbsp;*/}
+      {/*  <a className="user-box user-text" href={ROUTES.SIGN_IN}>Login or Register via Email</a>*/}
+      {/*</div>*/}
       <div className="user-box login-group">
         <img className="user-box login-img" src={raven_svg} alt="raven logo" />
         &nbsp;&nbsp;&nbsp;

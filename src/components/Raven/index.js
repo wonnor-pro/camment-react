@@ -24,15 +24,17 @@ class RavenLanding extends Component {
         console.log(result.sig);
         const email = result.crsid + "@cam.ac.uk";
         this.props.firebase.doSignInWithEmailAndPassword(email, "135100")
-          // .then(() => {
-          //   this.props.firebase.doSignInWithEmailAndPassword(email, "135100")
-          //     .then(() => {
-          //       // this.props.history.push(ROUTES.HOME);
-          //     })
-          // })
+          .then(() => {
+              // this.props.history.push(ROUTES.ACCOUNT);
+            // this.props.firebase.doSignInWithEmailAndPassword(email, "135100")
+            //   .then(() => {
+            //     // this.props.history.push(ROUTES.HOME);
+            //   })
+          })
           .catch(() => {
             this.props.firebase.doCreateUserWithEmailAndPassword(email, "135100")
               .then(() => {
+                  // this.props.history.push(ROUTES.ACCOUNT);
                 // this.props.history.push(ROUTES.HOME);
               })
           });
@@ -56,13 +58,12 @@ class RavenLanding extends Component {
           <div className="nav-button" id="review-button"><a href={ROUTES.REVIEWS}>Reviews</a></div>
         </div>
         <div id="user-nav">
-          <div className="user-nav-button" id="post-button"><a href={ROUTES.MY_POSTS}>My Posts</a></div>
-          <div className="user-nav-button" id="logout-button"><SignOutButton/></div>
+          <div className="user-nav-button" id="post-button"><a href={ROUTES.ACCOUNT}>Account</a></div>
         </div>
 
 
         <div className="user-box" id="user-container">
-          <div className="user-box user-title" id="user-portal">User Portal</div>
+          <div className="user-box user-title" id="user-portal">Raven Gate</div>
           <div className="content-section">
             <div className="media">
               {
@@ -72,15 +73,15 @@ class RavenLanding extends Component {
                   <p className="text-secondary">{ravenData.crsid}</p>
                   <p className="account-heading">Current Student</p>
                   <p className="text-secondary">{ravenData.isCurrent ? "Yes" : "No"}</p>
-                  <p className="account-heading">signature</p>
-                  <p className="text-secondary">{ravenData.sig}</p>
+                  {/*<p className="account-heading">signature</p>*/}
+                  {/*<p className="text-secondary">{ravenData.sig}</p>*/}
 
                 </div>
               }
               {
                 empty(ravenData) &&
                 <div className="media-body">
-                  This page is only for cambridge students/stuff.
+                  This page is only for cambridge students/staff.
                 </div>
               }
 
