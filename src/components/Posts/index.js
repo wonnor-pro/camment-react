@@ -15,7 +15,13 @@ class PostsBase extends React.Component {
 
     this.coursesList = {
       "3A": [],
-      "3F": []
+      "3B": [],
+      "3C": [],
+      "3D": [],
+      "3E": [],
+      "3F": [],
+      "3G": [],
+      "3M": []
     }
     this.openModule = this.openModule.bind(this);
     this.readModule = this.readModule.bind(this);
@@ -25,17 +31,39 @@ class PostsBase extends React.Component {
 
   readModule = () => {
     const coursesRef = this.props.firebase.fs.collection("courses");
-    coursesRef.where("course_id", "<=", "3A6")
+    coursesRef.where("course_id", ">=", "3A")
       .get()
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
           // doc.data() is never undefined for query doc snapshots
           // console.log(doc.id, " => ", doc.data());
-          this.coursesList['3A'].push(doc.data())
+          const id = doc.get("course_id");
+          this.coursesList[id.slice(0,2)].push(doc.data());
+          // coursesRef.doc(id).set({
+          //   score: 3.5
+          // },{merge: true});
         });
-
-        console.log(this.coursesList['3A']);
+        console.log(this.coursesList);
       })
+    // coursesRef.where("score", "==", 3.5)
+    //   .get()
+    //   .then((querySnapshot) => {
+    //     querySnapshot.forEach((doc) => {
+    //       // doc.data() is never undefined for query doc snapshots
+    //       // // console.log(doc.id, " => ", doc.data());
+    //       // const id = doc.get("course_id");
+    //       // this.coursesList[id.slice(0,2)].push(doc.data());
+    //       const id = doc.id;
+    //       const link = "http://teaching.eng.cam.ac.uk/-2020-21";
+    //       coursesRef.doc(id).set({
+    //         course_id: id,
+    //         link: link,
+    //         posts: [],
+    //         score: 3.5
+    //       },{merge: true});
+    //     });
+    //     console.log(this.coursesList);
+    //   })
   }
 
   openModule(event) {
@@ -55,8 +83,11 @@ class PostsBase extends React.Component {
     this.forceUpdate();
   }
 
-  render() {
+  componentDidMount() {
     this.readModule();
+  }
+
+  render() {
     return (
       <div className="posts">
         <div id="main">
