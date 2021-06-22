@@ -89,22 +89,22 @@ class PostsBase extends React.Component {
               return (
                 <div id={value} key={index} className="tabcontent" style={{display: this.dispSwitch[value]}}>
                   <div id="post-lists">
-                    {this.coursesList[value].map((value, index) => {
+                    {this.coursesList[value].map((course, index) => {
                       return (
                         <div className="post-record" key={index}>
-                          <p className="course-id">{value.course_id}</p>
-                          <p className="review-counts">{value.num_posts} Reviews</p>
+                          <p className="course-id">{course.course_id}</p>
+                          <p className="review-counts">{course.num_posts} Reviews</p>
                           <div className="score_wrapper">
-                            <FontAwesomeIcon className="yellow"
-                                             icon={faStarS}/><FontAwesomeIcon
-                            className="yellow"
-                            icon={faStarS}/><FontAwesomeIcon
-                            icon={faStarR}/><FontAwesomeIcon
-                            icon={faStarR}/><FontAwesomeIcon
-                            icon={faStarR}/>
+                            {Array.from(Array(5), (e, i) => {
+                              if (i < Math.floor(course.score))
+                                return <FontAwesomeIcon className="yellow" key={i}
+                                                        icon={faStarS}/>
+                              else
+                                return <FontAwesomeIcon icon={faStarR} key={i}/>
+                            })}
                           </div>
-                          <a href={"/Post/" + value.course_id}
-                             className="course-title">{value.name}</a>
+                          <a href={"/Post/" + course.course_id}
+                             className="course-title">{course.name}</a>
                         </div>
                       )
                     })}
