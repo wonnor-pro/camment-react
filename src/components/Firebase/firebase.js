@@ -28,7 +28,7 @@ class Firebase {
     this.auth = app.auth();
     this.db = app.database();
     this.fs = app.firestore();
-    this.currentCourseId = "";
+    // this.currentCourseId = "";
 
     /* Social Sign In Method Provider */
 
@@ -38,8 +38,8 @@ class Firebase {
   }
 
   // *** Auth API ***
-  storeCurrentCourseId = (course_id) =>
-    this.currentCourseId = course_id;
+  // storeCurrentCourseId = (course_id) =>
+  //   this.currentCourseId = course_id;
 
   doCreateUserWithEmailAndPassword = (email, password) =>
     this.auth.createUserWithEmailAndPassword(email, password);
