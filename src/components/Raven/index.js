@@ -112,8 +112,8 @@ class RavenLanding extends Component {
       //   <LoginManagement authUser={authUser} />
       // </div>
 
-    );
-  }
-};
+    )
+  };
+}
 
 export default withFirebase(RavenLanding);

@@ -1,9 +1,28 @@
 import React from 'react';
-
+import { compose } from 'recompose';
 import { withFirebase } from '../Firebase';
+import {withRouter} from "react-router-dom";
 
-const SignOutButton = ({ firebase }) => (
-  <a id="sign-out" onClick={firebase.doSignOut}>Log Out</a>
-);
+class SignOutButton extends React.Component {
+  constructor(props) {
+    super(props);
 
-export default withFirebase(SignOutButton);
+    this.SignOut = this.SignOut.bind(this);
+  }
+
+  SignOut(){
+    this.props.firebase.doSignOut();
+    fetch("/raven/logout");
+  }
+
+  render() {
+    return(
+      <a id="sign-out" onClick={this.SignOut}>Log Out</a>
+    )
+  }
+}
+
+export default compose(
+  withFirebase,
+  withRouter
+)(SignOutButton);

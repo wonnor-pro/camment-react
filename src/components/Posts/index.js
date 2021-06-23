@@ -1,6 +1,5 @@
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faStar as faStarS} from '@fortawesome/free-solid-svg-icons';
-import {faStar as faStarR} from "@fortawesome/free-regular-svg-icons";
 import React from "react";
 import {withFirebase} from "../Firebase";
 import StyledRating from "../Score";
