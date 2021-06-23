@@ -115,7 +115,7 @@ class PostForm extends React.Component {
         }
       </div>
     )
-  }
+  };
 }
 
 
