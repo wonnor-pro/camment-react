@@ -3,7 +3,7 @@ import {faStar as faStarS} from '@fortawesome/free-solid-svg-icons';
 import React from "react";
 import {withFirebase} from "../Firebase";
 import StyledRating from "../Score";
-
+import {Link} from "react-router-dom";
 class PostsBase extends React.Component {
 
   constructor(props) {
@@ -107,8 +107,8 @@ class PostsBase extends React.Component {
                               readOnly
                             />
                           </div>
-                          <a href={"/Post/" + course.course_id}
-                             className="course-title">{course.name}</a>
+                          <Link to={"/Post/" + course.course_id}
+                             className="course-title">{course.name}</Link>
                         </div>
                       )
                     })}
