@@ -49,7 +49,7 @@ class PostForm extends React.Component {
       console.log(e);
       this.setState({...this.state, isFetching: false});
     }
-  };
+  }
 
   componentDidMount() {
     const fetchPost = this.fetchPostAsync;
@@ -115,7 +115,7 @@ class PostForm extends React.Component {
         }
       </div>
     )
-  };
+  }
 }
 
 
