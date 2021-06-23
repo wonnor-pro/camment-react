@@ -12,56 +12,73 @@ import { compose } from 'recompose';
 class PostForm extends React.Component {
   constructor(props) {
     super(props);
-    // alert(this.props.match.params.ID);
-    this.postsMap = {};
-    this.postsId = [];
-    this.course = "";
-    this.readPosts = this.readPosts.bind(this);
+    this.state = {ID: this.props.match.params.ID, postsMap: {}, postsId: [], course:"", isFetching: false}
+    this.fetchPostAsync = this.fetchPostAsync.bind(this);
+    this.fetchCourseAsync = this.fetchCourseAsync.bind(this);
+    this.fetchSinglePostAsync = this.fetchSinglePostAsync.bind(this);
   }
 
-  readPosts = () => {
-    const course_id = this.props.match.params.ID;
-    console.log(course_id);
+  async fetchCourseAsync(courseRef) {
+    return courseRef.get(courseRef);
+  }
 
-    const courseRef = this.props.firebase.fs.collection("courses").doc(course_id);
-    const postRef = this.props.firebase.fs.collection("posts");
+  async fetchSinglePostAsync(postRef, value){
+    return postRef.doc(value).get();
+  }
 
-    courseRef.get().then((doc) => {
-      this.course = doc.data();
-      this.postsId = doc.get("posts");
+  async fetchPostAsync() {
+    try {
+      this.setState({...this.state, isFetching: true});
+      const course_id = this.state.ID;
+      const courseRef = this.props.firebase.fs.collection("courses").doc(course_id);
+      const postRef = this.props.firebase.fs.collection("posts");
+
+      const doc = await this.fetchCourseAsync(courseRef);
+      const course = doc.data();
+      const postsId = doc.get("posts");
       const postMap = {};
-      this.postsId.forEach(function (value, index) {
-        postRef.doc(value).get().then((doc_post) => {
-          postMap[value] = doc_post.data();
-        });
-      });
-      this.postsMap = postMap;
-      console.log(this.postsMap);
-      console.log(this.course);
-    });
-  }
+      for (const value of postsId) {
+        const doc_post = await this.fetchSinglePostAsync(postRef, value);
+        postMap[value] = doc_post.data();
+        }
+      console.log(this.state.postsMap);
+      console.log(this.state.course);
+      this.setState({...this.state, postsMap:postMap, postsId: postsId, course:course, isFetching: false});
+    } catch (e) {
+      console.log(e);
+      this.setState({...this.state, isFetching: false});
+    }
+  };
 
   componentDidMount() {
-    this.readPosts();
+    const fetchPost = this.fetchPostAsync;
+    fetchPost();
   }
 
   render() {
+    console.log(this.state.course);
     return (
       <div className="Post">
         <Navigation/>
+        { this.state.isFetching &&
+        <div className="post">
+          <div className="load">{'Loading...'}</div>
+        </div>
+        }
+        { !this.state.isFetching &&
         <div className="post">
           <div className="course-info">
-            <p className="course-id">{this.props.match.params.ID}</p>
-            <p className="review-counts">{this.course.num_posts} reviews</p>
-            <p className="course-title">{this.course.name}</p>
+            <p className="course-id">{this.state.ID}</p>
+            <p className="review-counts">{this.state.course.num_posts} reviews</p>
+            <p className="course-title">{this.state.course.name}</p>
             {/*<p className="course-title">3A1</p>*/}
             <a className="course-desc"
-               href={this.course.link}>
+               href={this.state.course.link}>
               Course Syllabus
             </a>
             <div className="score_wrapper">
               {Array.from(Array(5), (e, i) => {
-                if (i < Math.floor(this.course.score))
+                if (i < Math.floor(this.state.course.score))
                   return <FontAwesomeIcon className="yellow" key={i}
                                           icon={faStarS}/>
                 else
@@ -73,13 +90,13 @@ class PostForm extends React.Component {
             <h3>Course Review</h3>
           </div>
           <div className="comments-box">
-            {this.postsId.map((postId, index) => {
+            {this.state.postsId.map((postId, index) => {
               return (
                 <div className="comment-post" key = {index}>
-                  <div className="comment"> {this.postsMap[postId].content}</div>
+                  <div className="comment"> {this.state.postsMap[postId].content}</div>
                   <div className="comment-info">
-                    <div className="comment-date">{this.postsMap[postId].timestamp}</div>
-                    <div className="user-name">{this.postsMap[postId].author}</div>
+                    <div className="comment-date">{this.state.postsMap[postId].timestamp}</div>
+                    <div className="user-name">{this.state.postsMap[postId].author}</div>
                   </div>
                 </div>
               )
@@ -95,9 +112,10 @@ class PostForm extends React.Component {
             {/*</form>*/}
           </div>
         </div>
+        }
       </div>
     )
-  };
+  }
 }
 
 

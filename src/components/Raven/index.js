@@ -3,56 +3,56 @@ import SignOutButton from "../SignOut";
 import PasswordChangeForm from "../PasswordChange";
 import React, {Component} from 'react';
 import {withFirebase} from "../Firebase";
-
+import axios from "axios";
 const empty = require('is-empty');
 
 
 class RavenLanding extends Component {
   constructor(props) {
     super(props);
-    this.state = {ravenData: {}};
+    this.state = {ravenData: {}, isFetching: false};
+
+    this.fetchUsersAsync = this.fetchUsersAsync.bind(this);
   }
 
-  componentDidMount() {
-    fetch("/raven/user")
-      .then(res => res.json())
-      .then(result => {
-        this.setState = ({ravenData: result});
-        console.log(this.props.firebase);
-        // console.log(result);
-        console.log(result.crsid);
-        console.log(result.sig);
-        const email = result.crsid + "@cam.ac.uk";
-        this.props.firebase.doSignInWithEmailAndPassword(email, "135100")
-          .then(() => {
-            // this.props.history.push(ROUTES.ACCOUNT);
-            // this.props.firebase.doSignInWithEmailAndPassword(email, "135100")
-            //   .then(() => {
-            //     // this.props.history.push(ROUTES.HOME);
-            //   })
-          })
-          .catch(() => {
-            this.props.firebase.doCreateUserWithEmailAndPassword(email, "135100")
-              .then(() => {
-                const userRef = this.props.firebase.fs.collection("users").doc(result.crsid);
-                userRef.set({
-                  email: email,
-                  name: "",
-                  num_posts: 0,
-                  posts: []
-                })
+  async fetchUsersAsync() {
+    try {
+      this.setState({...this.state, isFetching: true});
+      const response = await axios.get(ROUTES.USER_SERVICE_URL);
+      console.log(response);
+      this.setState({ravenData: response.data, isFetching: false});
+      const ravenData = response.data;
+      const email = ravenData.crsid + "@cam.ac.uk";
+      this.props.firebase.doSignInWithEmailAndPassword(email, "135100")
+        .then(() => {})
+        .catch(() => {
+          this.props.firebase.doCreateUserWithEmailAndPassword(email, "135100")
+            .then(() => {
+              const userRef = this.props.firebase.fs.collection("users").doc(ravenData.crsid);
+              userRef.set({
+                email: email,
+                name: "",
+                num_posts: 0,
+                posts: []
               })
-          });
+            })
+        });
+    } catch (e) {
+      console.log(e);
+      this.setState({...this.state, isFetching: false});
+    }
+  };
 
-      })
-      .catch(err => {
-        console.log(err);
-      });
+
+  componentDidMount() {
+    const fetchUsers = this.fetchUsersAsync;
+    fetchUsers();
   }
 
   render() {
-    const ravenData = this.setState.ravenData;
-    // console.log(Object.keys(ravenData));
+    const ravenData = this.state.ravenData;
+    console.log(Object.keys(ravenData));
+    console.log(ravenData);
 
     return (
       <div id="main">
