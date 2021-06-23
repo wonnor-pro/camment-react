@@ -3,6 +3,7 @@ import {faStar as faStarS} from '@fortawesome/free-solid-svg-icons';
 import {faStar as faStarR} from "@fortawesome/free-regular-svg-icons";
 import React from "react";
 import {withFirebase} from "../Firebase";
+import StyledRating from "../Score";
 
 class PostsBase extends React.Component {
 
@@ -38,7 +39,7 @@ class PostsBase extends React.Component {
         // }, {merge: true})
         coursesList[new_division].push(doc.data());
         this.setState({dispSwitch: dispSwitch, division: division, coursesList: coursesList, isFetching: false});
-        });
+      });
 
     } catch (e) {
       console.log(e);
@@ -46,7 +47,7 @@ class PostsBase extends React.Component {
     }
   };
 
-  async readModule(){
+  async readModule() {
     const coursesRef = this.props.firebase.fs.collection("courses");
     return coursesRef.where("course_id", ">=", "3A").get()
   }
@@ -82,7 +83,7 @@ class PostsBase extends React.Component {
           <div id="review">
             <div className="tab">
               <h3 id="tab-title">Part IIA</h3>
-              <div className="load" >{this.state.isFetching ? 'Loading...' : ''}</div>
+              <div className="load">{this.state.isFetching ? 'Loading...' : ''}</div>
               {this.state.division.map((value, index) => {
                 return (
                   <button className="tablinks" key={index} id={value} onMouseOver={this.openModule}
@@ -101,13 +102,14 @@ class PostsBase extends React.Component {
                           <p className="course-id">{course.course_id}</p>
                           <p className="review-counts">{course.num_posts} Reviews</p>
                           <div className="score_wrapper">
-                            {Array.from(Array(5), (e, i) => {
-                              if (i < Math.floor(course.score))
-                                return <FontAwesomeIcon className="yellow" key={i}
-                                                        icon={faStarS}/>
-                              else
-                                return <FontAwesomeIcon icon={faStarR} key={i}/>
-                            })}
+                            <StyledRating
+                              name="score"
+                              value={course.score}
+                              icon={<FontAwesomeIcon icon={faStarS}/>}
+                              precision={0.5}
+                              size="small"
+                              readOnly
+                            />
                           </div>
                           <a href={"/Post/" + course.course_id}
                              className="course-title">{course.name}</a>

@@ -6,8 +6,9 @@ import {faStar as faStarR} from '@fortawesome/free-regular-svg-icons';
 import {withFirebase} from "../Firebase";
 import {REVIEWS} from "../../constants/routes";
 import { withRouter } from 'react-router-dom';
-
 import { compose } from 'recompose';
+import StyledRating from "../Score";
+import UserStyledRating from "../Score/user";
 
 class PostForm extends React.Component {
   constructor(props) {
@@ -76,15 +77,14 @@ class PostForm extends React.Component {
                href={this.state.course.link}>
               Course Syllabus
             </a>
-            <div className="score_wrapper">
-              {Array.from(Array(5), (e, i) => {
-                if (i < Math.floor(this.state.course.score))
-                  return <FontAwesomeIcon className="yellow" key={i}
-                                          icon={faStarS}/>
-                else
-                  return <FontAwesomeIcon icon={faStarR} key={i}/>
-              })}
-            </div>
+            <StyledRating
+              name="score"
+              value={this.state.course.score}
+              icon={<FontAwesomeIcon icon={faStarS}/>}
+              precision={0.5}
+              size="small"
+              readOnly
+            />
           </div>
           <div className="post-entry">
             <h3>Course Review</h3>
@@ -124,7 +124,8 @@ class CommentFormBase extends React.Component {
     super(props);
     this.state = {
       comment: '',
-      year: 2020
+      year: 2020,
+      rating: 2.5,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -206,7 +207,7 @@ class CommentFormBase extends React.Component {
         console.log("No such document!");
       }
     });
-    alert('A comment was submitted: ' + this.state.comment + '\nCourse Taken in ' + this.state.year);
+    alert('A comment was submitted: ' + this.state.comment + '\nCourse Taken in ' + this.state.year + '\n Rating is' + this.state.rating);
     event.preventDefault();
 
     // to be decided, just for testing
@@ -223,7 +224,20 @@ class CommentFormBase extends React.Component {
         </label>
         <br/>
         <label>
-          Course taken in the&nbsp;
+          Rate&nbsp;
+          <UserStyledRating
+            className="rating"
+            name="score"
+            // defaultValue={this.state.rating}
+            value={this.state.rating}
+            icon={<FontAwesomeIcon icon={faStarS}/>}
+            onChange={(event, newValue) => {
+              this.setState({... this.state, rating: newValue});
+            }}
+            precision={0.5}
+            size="small"
+          />
+          &nbsp;for the course taken in the&nbsp;
           <input
             name="year"
             type="number"
@@ -231,6 +245,7 @@ class CommentFormBase extends React.Component {
             onChange={this.handleChange}/>
           -{this.state.year + 1} academic year.
         </label>
+        <br/>
         <input type="submit" value="Submit"/>
       </form>
     );
