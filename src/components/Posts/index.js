@@ -13,7 +13,6 @@ class PostsBase extends React.Component {
     this.openModule = this.openModule.bind(this);
     this.readModule = this.readModule.bind(this);
     this.fetchPostsAsync = this.fetchPostsAsync.bind(this);
-    console.log(this.props);
   }
 
   async fetchPostsAsync() {
@@ -27,7 +26,6 @@ class PostsBase extends React.Component {
 
       querySnapshot.forEach((doc) => {
         const id = doc.get("course_id");
-        console.log(id);
         const new_division = id.slice(0, 2);
         if (!(new_division in this.state.coursesList)) {
           coursesList[new_division] = [];
@@ -76,7 +74,6 @@ class PostsBase extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div className="posts">
         <div id="main">
