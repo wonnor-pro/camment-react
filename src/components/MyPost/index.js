@@ -1,30 +1,35 @@
 import Navigation from "../Navigation";
 import React, {Component} from "react";
 import {withFirebase} from "../Firebase";
-
-const empty = require('is-empty');
+import axios from "axios";
+import * as ROUTES from "../../constants/routes";
+import {withAuthorization} from "../Session";
+import {compose} from "recompose";
 
 class MyPost extends Component {
   constructor(props) {
     super(props);
-    this.state = {ravenData: {}};
-    this.myPosts = [];
+    // TODO: update the post information required
+    this.state = {ravenData: {}, myPosts: [], isFetching: false};
+
+    this.fetchUsersAsync = this.fetchUsersAsync.bind(this);
   }
 
+  async fetchUsersAsync() {
+    try {
+      this.setState({...this.state, isFetching: true});
+      const response = await axios.get(ROUTES.USER_SERVICE_URL);
+      console.log(response);
+      this.setState({...this.state, ravenData: response.data, isFetching: false});
+    } catch (e) {
+      console.log(e);
+      this.setState({...this.state, isFetching: false});
+    }
+  };
+
   componentDidMount() {
-    fetch("/raven/user")
-      .then(res => res.json())
-      .then(result => {
-        this.setState = ({ravenData: result});
-        console.log(result.crsid);
-        console.log(result.sig);
-        const postRef = this.props.firebase.fs.collection("posts")
-
-      })
-      .catch(err => {
-        console.log(err);
-      });
-
+    const fetchUser = this.fetchUsersAsync;
+    fetchUser();
   }
 
   handleDelete(event) {
@@ -32,21 +37,16 @@ class MyPost extends Component {
   }
 
   render() {
-    const ravenData = this.setState.ravenData;
-    // console.log(Object.keys(ravenData));
     return (
       <div className="Post">
         <Navigation/>
         <div className="post">
-          {
-            !empty(ravenData) &&
-            <div className="course-info">
-              {/* TODO: update this */}
-              <p className="my-id">{ravenData.crsid}</p>
-              <p className="post-counts">145 posts</p>
-              <p className="mypost-title">My Posts</p>
-            </div>
-          }
+          <div className="course-info">
+            {/* TODO: update this */}
+            <p className="my-id">{this.state.ravenData.crsid}</p>
+            <p className="post-counts">145 posts</p>
+            <p className="mypost-title">My Posts</p>
+          </div>
           {/*<div className="comments-box">*/}
           <div className="comment-post">
             <div className="comment">
@@ -129,5 +129,9 @@ class MyPost extends Component {
   };
 }
 
+const condition = authUser => !!authUser;
 
-export default withFirebase(MyPost);
+export default compose(
+    withFirebase,
+    withAuthorization(condition)
+)(MyPost);
