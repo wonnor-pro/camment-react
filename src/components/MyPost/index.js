@@ -37,6 +37,7 @@ class MyPost extends Component {
   }
 
   render() {
+    console.log(this.state.ravenData.crsid);
     return (
       <div className="Post">
         <Navigation/>
