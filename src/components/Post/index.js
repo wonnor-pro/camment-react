@@ -140,7 +140,6 @@ class CommentFormBase extends React.Component {
     this.setState({
       [name]: value
     });
-    console.log(this.props);
   }
 
   handleSubmit(event) {
@@ -207,11 +206,11 @@ class CommentFormBase extends React.Component {
         console.log("No such document!");
       }
     });
-    alert('A comment was submitted: ' + this.state.comment + '\nCourse Taken in ' + this.state.year + '\n Rating is' + this.state.rating);
+    // alert('A comment was submitted: ' + this.state.comment + '\nCourse Taken in ' + this.state.year + '\n Rating is' + this.state.rating);
     event.preventDefault();
 
     // to be decided, just for testing
-    this.props.history.push("/reviews");
+    this.props.history.push("/successful-submission/" + course_id);
   }
 
   render() {

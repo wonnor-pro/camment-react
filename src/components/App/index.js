@@ -14,6 +14,7 @@ import Login from "../Login";
 import RavenLanding from "../Raven";
 import MyPost from "../MyPost";
 import NotFound from "../NotFound";
+import {SuccessfulSubmission} from "../UserAction";
 import Footer from "../Footer";
 const App = () => (
 
@@ -29,6 +30,7 @@ const App = () => (
         <Route path={ROUTES.REVIEWS} component={Reviews} />
         <Route exact path="/Post" component={Post} />
         <Route path="/Post/:ID" component={Post} />
+        <Route path="/successful-submission/:ID" component={SuccessfulSubmission} />
         <Route path={ROUTES.LOG_IN} component={Login} />
         <Route path={ROUTES.RAVEN_LANDING} component={RavenLanding} />
         <Route path={ROUTES.MY_POSTS} component={MyPost} />
