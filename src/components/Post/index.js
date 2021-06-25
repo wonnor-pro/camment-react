@@ -7,6 +7,7 @@ import {withRouter} from 'react-router-dom';
 import {compose} from 'recompose';
 import StyledRating from "../Score";
 import UserStyledRating from "../Score/user";
+import * as ROUTES from "../../constants/routes";
 
 
 class PostForm extends React.Component {
@@ -83,6 +84,9 @@ class PostForm extends React.Component {
           <div className="post-entry">
             <h3>Course Review</h3>
           </div>
+          <div className="disclaimer"> Please be kindly noted that the course syllabus and lecturers may vary from year to year.
+            Legacy posts are collected from previous resources.
+          </div>
           <div className="comments-box">
             {this.state.postsId.map((postId, index) => {
               return (
@@ -114,6 +118,9 @@ class PostForm extends React.Component {
           </div>
           <div className="comment-input-group">
             <CommentForm/>
+          </div>
+          <div className="report-issues">
+            <p>Copyright &copy; 2021 ｜ <a href={ROUTES.REPORT}> Report an issue here</a> or contact us at <a href={"mailto:admin@camments.com"}>admin@camments.com</a></p>
           </div>
         </div>
         }

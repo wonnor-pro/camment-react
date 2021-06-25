@@ -12,3 +12,4 @@ export const LOG_IN = '/log_in';
 export const RAVEN = '/raven/login'
 export const RAVEN_LANDING = '/landing-raven'
 export const USER_SERVICE_URL = "/raven/user"
+export const REPORT = "/report"

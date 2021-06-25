@@ -16,6 +16,7 @@ import MyPost from "../MyPost";
 import NotFound from "../NotFound";
 import {SuccessfulSubmission} from "../UserAction";
 import {SuccessfulDeletion} from "../UserAction";
+import Report from "../Report";
 import Footer from "../Footer";
 const App = () => (
 
@@ -36,6 +37,7 @@ const App = () => (
         <Route path={ROUTES.LOG_IN} component={Login} />
         <Route path={ROUTES.RAVEN_LANDING} component={RavenLanding} />
         <Route path={ROUTES.MY_POSTS} component={MyPost} />
+        <Route path={ROUTES.REPORT} component={Report} />
         <Route path='*' exact={true} component={NotFound} />
       </Switch>
     </div>
