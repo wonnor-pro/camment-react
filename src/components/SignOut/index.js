@@ -13,6 +13,8 @@ class SignOutButton extends React.Component {
   SignOut(){
     this.props.firebase.doSignOut();
     fetch("/raven/logout");
+    alert("You have successfully logged out from Raven!")
+    this.props.history.push("/");
   }
 
   render() {

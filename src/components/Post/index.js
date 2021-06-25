@@ -94,7 +94,7 @@ class PostForm extends React.Component {
                       <div className="user-name">{this.state.postsMap[postId].author}</div>
                     </div>
                     <div>
-                      <div className="comment-year">2020-2021</div>
+                      <div className="comment-year">{this.state.postsMap[postId].begin_year}-{this.state.postsMap[postId].begin_year+1}</div>
                       <UserStyledRating
                         name="score"
                         value={this.state.course.score}
@@ -155,7 +155,6 @@ class CommentFormBase extends React.Component {
     // console.log("submitted");
     console.log(course_id);
 
-    const fake_score = 3;  // to be set
     const userRef = this.props.firebase.fs.collection("users").doc(crsId);
     const courseRef = this.props.firebase.fs.collection("courses").doc(course_id);
 
@@ -182,7 +181,7 @@ class CommentFormBase extends React.Component {
           content: this.state.comment,
           begin_year: this.state.year,
           course_id: course_id,
-          score: fake_score,
+          score: this.state.rating,
           timestamp: date
         });
 
@@ -195,7 +194,7 @@ class CommentFormBase extends React.Component {
           // console.log(course_posts);
           course_posts.push(postId);
 
-          const avg_score = (course_score * course_num_post + fake_score) / new_course_num_post;
+          const avg_score = (course_score * course_num_post + this.state.rating) / new_course_num_post;
 
           this.props.firebase.fs.collection("courses").doc(course_id).set({
             num_posts: course_num_post + 1,

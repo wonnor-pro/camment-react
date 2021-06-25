@@ -72,7 +72,7 @@ class SuccessfulDeletionBase extends React.Component {
         </div>
 
         <div className="user-box" id="user-container">
-          <div className="user-box user-title" id="user-portal">Successful Submission</div>
+          <div className="user-box user-title" id="user-portal">Successful Deletion</div>
           <div className="content-section">
             <div className="media">
               <div className="media-body">
