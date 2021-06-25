@@ -12,6 +12,10 @@ To test the repo, just download the node.js source code and run `npm install` to
 
 The react app has been set up to the localhost port at 3000, the express server is set to be listening on the localhost:5000 port, which is de facto localhost:3000/raven via proxy. 
 
+
+### Deploy
+When the project is finished, the web app will be hosted by firebase and accessible on [https://camment.com](https://camment.com).
+
 ![img](/public/img/homepage.png)
 ![img](/public/img/review_page.png)
 ![img](/public/img/mypost.png)
