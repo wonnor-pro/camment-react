@@ -84,7 +84,8 @@ class PostForm extends React.Component {
           <div className="post-entry">
             <h3>Course Review</h3>
           </div>
-          <div className="disclaimer"> Please be kindly noted that the course syllabus and lecturers may vary from year to year.
+          <div className="disclaimer"> Please be kindly noted that the course syllabus and lecturers may vary from year
+            to year.
             Legacy posts are collected from previous resources.
           </div>
           <div className="comments-box">
@@ -98,7 +99,8 @@ class PostForm extends React.Component {
                       <div className="user-name">{this.state.postsMap[postId].author}</div>
                     </div>
                     <div>
-                      <div className="comment-year">{this.state.postsMap[postId].begin_year}-{this.state.postsMap[postId].begin_year+1}</div>
+                      <div
+                        className="comment-year">{this.state.postsMap[postId].begin_year}-{this.state.postsMap[postId].begin_year + 1}</div>
                       <UserStyledRating
                         name="score"
                         value={this.state.postsMap[postId].score}
@@ -120,7 +122,8 @@ class PostForm extends React.Component {
             <CommentForm/>
           </div>
           <div className="report-issues">
-            <p>Copyright &copy; 2021 ｜ <a href={ROUTES.REPORT}> Report an issue here</a> or contact us at <a href={"mailto:admin@camments.com"}>admin@camments.com</a></p>
+            <p>Copyright &copy; 2021 ｜ <a href={ROUTES.REPORT}> Report an issue here</a> or contact us at <a
+              href={"mailto:admin@camments.com"}>admin@camments.com</a></p>
           </div>
         </div>
         }
@@ -262,9 +265,9 @@ class CommentFormBase extends React.Component {
         {!this.props.firebase.auth.email &&
         <p>You have to <a href={ROUTES.LOG_IN}>[Login]</a> first to post a review.</p>}
       </div>
-
     );
   }
+
 }
 
 const CommentForm = compose(
