@@ -356,9 +356,14 @@ nav {
 }
 
 .comment-info {
-  padding-top: 10px;
+  padding-top: 20px;
   display: flex;
   justify-content: space-between;
+  color: #9a9a9a;
+}
+
+.user-name {
+  font-size: 120%;
 }
 
 .comment-form {
@@ -442,6 +447,10 @@ nav {
   font-size: 25px;
 }
 
+.my-subpost-title {
+  padding-bottom: 50px;
+}
+
 .my-id {
   float: right;
   font-size: 30px;
@@ -453,15 +462,22 @@ nav {
   color: rgba(59,67,77,0.7);
 }
 
-.post-delete {
-  border: dashed #3B434D 2px;
+.my-comment-course {
+  font-size: 170%;
   color: #3B434D;
+  float: left;
+}
+
+.post-delete {
+  border: dashed #707070 1.5px;
+  color: #707070;
   border-radius: 3px;
   padding: 0 6px;
+  float: right;
 }
 
 .post-delete:hover {
-  border: dashed #3B434D 2px;
+  border: solid #3B434D 1px;
   background: #3B434D;
   color: #EBEBEB;
   border-radius: 3px;

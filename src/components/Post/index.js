@@ -95,8 +95,21 @@ class PostForm extends React.Component {
                 <div className="comment-post" key = {index}>
                   <div className="comment"> {this.state.postsMap[postId].content}</div>
                   <div className="comment-info">
-                    <div className="comment-date">{this.state.postsMap[postId].timestamp}</div>
-                    <div className="user-name">{this.state.postsMap[postId].author}</div>
+                    <div>
+                      <div className="comment-date">{this.state.postsMap[postId].timestamp}</div>
+                      <div className="user-name">{this.state.postsMap[postId].author}</div>
+                    </div>
+                    <div>
+                      <div className="comment-year">2020-2021</div>
+                      <UserStyledRating
+                        name="score"
+                        value={this.state.course.score}
+                        icon={<FontAwesomeIcon icon={faStarS}/>}
+                        precision={0.5}
+                        size="small"
+                        readOnly
+                      />
+                    </div>
                   </div>
                 </div>
               )

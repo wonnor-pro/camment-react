@@ -5,6 +5,9 @@ import axios from "axios";
 import * as ROUTES from "../../constants/routes";
 import {withAuthorization} from "../Session";
 import {compose} from "recompose";
+import UserStyledRating from "../Score/user";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faStar as faStarS} from "@fortawesome/free-solid-svg-icons";
 
 class MyPost extends Component {
   constructor(props) {
@@ -48,8 +51,13 @@ class MyPost extends Component {
             <p className="post-counts">145 posts</p>
             <p className="mypost-title">My Posts</p>
           </div>
-          {/*<div className="comments-box">*/}
+
           <div className="comment-post">
+            <div className="my-subpost-title">
+              <div className="my-comment-course">3F1</div>
+              <a className="post-delete" onClick={this.handleDelete}>Delete</a>
+            </div>
+
             <div className="comment">
               Really useful module that’s generally quite interesting I think. Lays the foundation for
               so
@@ -60,70 +68,24 @@ class MyPost extends Component {
               generally aren’t too complicated and the exam is pretty doable. I’d recommend it.
             </div>
             <div className="comment-info">
-              <div className="comment-date">07-08-2020</div>
-              <a className="post-delete" onClick={this.handleDelete}>Delete</a>
+              <div>
+                <div className="comment-date">07-08-2020</div>
+                <div className="user-name">{this.state.ravenData.crsid}</div>
+              </div>
+              <div>
+                <div className="comment-year">2020-2021</div>
+                <UserStyledRating
+                  name="score"
+                  value={2.5}
+                  icon={<FontAwesomeIcon icon={faStarS}/>}
+                  precision={0.5}
+                  size="small"
+                  readOnly
+                />
+              </div>
             </div>
           </div>
-          <div className="comment-post">
-            <div className="comment">
-              Really useful module that’s generally quite interesting I think. Lays the foundation for
-              so
-              much other
-              information engineering so if you want to go down that route, this is almost essential.
-              The
-              concepts
-              generally aren’t too complicated and the exam is pretty doable. I’d recommend it.
-            </div>
-            <div className="comment-info">
-              <div className="comment-date">07-08-2020</div>
-              <a className="post-delete" onClick={this.handleDelete}>Delete</a>
-            </div>
-          </div>
-          <div className="comment-post">
-            <div className="comment">
-              Really useful module that’s generally quite interesting I think. Lays the foundation for
-              so
-              much other
-              information engineering so if you want to go down that route, this is almost essential.
-              The
-              concepts
-              generally aren’t too complicated and the exam is pretty doable. I’d recommend it.
-            </div>
-            <div className="comment-info">
-              <div className="comment-date">07-08-2020</div>
-              <a className="post-delete" onClick={this.handleDelete}>Delete</a>
-            </div>
-          </div>
-          <div className="comment-post">
-            <div className="comment">
-              Really useful module that’s generally quite interesting I think. Lays the foundation for
-              so
-              much other
-              information engineering so if you want to go down that route, this is almost essential.
-              The
-              concepts
-              generally aren’t too complicated and the exam is pretty doable. I’d recommend it.
-            </div>
-            <div className="comment-info">
-              <div className="comment-date">07-08-2020</div>
-              <a className="post-delete" onClick={this.handleDelete}>Delete</a>
-            </div>
-          </div>
-          <div className="comment-post">
-            <div className="comment">
-              Really useful module that’s generally quite interesting I think. Lays the foundation for
-              so
-              much other
-              information engineering so if you want to go down that route, this is almost essential.
-              The
-              concepts
-              generally aren’t too complicated and the exam is pretty doable. I’d recommend it.
-            </div>
-            <div className="comment-info">
-              <div className="comment-date">07-08-2020</div>
-              <a className="post-delete" onClick={this.handleDelete}>Delete</a>
-            </div>
-          </div>
+
         </div>
       </div>
     )
