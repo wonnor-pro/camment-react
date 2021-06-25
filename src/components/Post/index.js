@@ -184,14 +184,26 @@ class CommentFormBase extends React.Component {
 
         //  write to posts data
         const today = new Date();
-        const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-        console.log(date);
+        const month = today.getMonth() + 1;
+        let str_month = "";
+        if (month <= 9) {
+          str_month = "0" + month.toString();
+        } else {
+          str_month = month.toString();
+        }
+        const date = today.getFullYear() + '-' + str_month + '-' + today.getDate();
+        // console.log(date);
+        let score = this.state.rating;
+        if (score === null) {
+          score = 0;
+        }
+
         this.props.firebase.fs.collection("posts").doc(postId).set({
           author: crsId,
           content: this.state.comment,
           begin_year: this.state.year,
           course_id: course_id,
-          score: this.state.rating,
+          score: score,
           timestamp: date
         });
 
