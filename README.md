@@ -1,6 +1,6 @@
-# Camment project with React
+# Camments project with React
 
-This repo is the React.js version of the camment project.  The primary aim for the camment project is to provide a platform to share engineering course reviews for the University of Cambridge.
+This repo is the React.js version of the camments project.  The primary aim for the camment project is to provide a platform to share engineering course reviews for the University of Cambridge.
 
 ### Basic structure
 We use `react.js` to control the routing, rendering and page logics. At the same time, the `express` is used as the middleware together with the `passport.js` module to host the raven login (for cambridge student authentication).
@@ -14,7 +14,7 @@ The react app has been set up to the localhost port at 3000, the express server 
 
 
 ### Deploy
-When the project is finished, the web app will be hosted by firebase and accessible on [https://camment.com](https://camment.com).
+When the project is finished, the web app will be hosted by firebase and accessible on [https://camments.com](https://camments.com).
 
 ![img](/public/img/homepage.png)
 ![img](/public/img/review_page.png)
