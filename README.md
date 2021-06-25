@@ -18,7 +18,7 @@ The react app has been set up to the localhost port at 3000, the express server 
 
 ### Acknowledgement
 
-This project is developed by [Connor Wang](https://github.com/wonnor-pro) and [Helana Yang](https://github.com/helenayyan), sponsored by the grant scheme of [Cambridge University Engineering Society](https://cues.org.uk).
+This project is developed by [Connor Wang](https://github.com/wonnor-pro) and [Helana Yang](https://github.com/helenayyan), sponsored by [Cambridge University Engineering Society](https://cues.org.uk) through the grant scheme.
 
 Primary work from [Robin Wieruch](https://github.com/rwieruch) in its course for integrating firebase with react has been particularly helpful in our development.
 
