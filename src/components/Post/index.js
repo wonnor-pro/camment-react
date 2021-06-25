@@ -226,37 +226,43 @@ class CommentFormBase extends React.Component {
   render() {
     // console.log(this.props);
     return (
-      <form className="comment-form" onSubmit={this.handleSubmit}>
-        <label>
+      <div>
+        {this.props.firebase.auth.email &&
+        <form className="comment-form" onSubmit={this.handleSubmit}>
+          <label>
           <textarea name="comment" id="user-review" placeholder="Type in your review here."
                     onChange={this.handleChange}/>
-        </label>
-        <br/>
-        <label>
-          Rate&nbsp;
-          <UserStyledRating
-            className="rating"
-            name="score"
-            // defaultValue={this.state.rating}
-            value={this.state.rating}
-            icon={<FontAwesomeIcon icon={faStarS}/>}
-            onChange={(event, newValue) => {
-              this.setState({...this.state, rating: newValue});
-            }}
-            precision={0.5}
-            size="small"
-          />
-          &nbsp;for the course taken in the&nbsp;
-          <input
-            name="year"
-            type="number"
-            value={this.state.year}
-            onChange={this.handleChange}/>
-          -{this.state.year + 1} academic year.
-        </label>
-        <br/>
-        <input type="submit" value="Submit"/>
-      </form>
+          </label>
+          <br/>
+          <label>
+            Rate&nbsp;
+            <UserStyledRating
+              className="rating"
+              name="score"
+              // defaultValue={this.state.rating}
+              value={this.state.rating}
+              icon={<FontAwesomeIcon icon={faStarS}/>}
+              onChange={(event, newValue) => {
+                this.setState({...this.state, rating: newValue});
+              }}
+              precision={0.5}
+              size="small"
+            />
+            &nbsp;for the course taken in the&nbsp;
+            <input
+              name="year"
+              type="number"
+              value={this.state.year}
+              onChange={this.handleChange}/>
+            -{this.state.year + 1} academic year.
+          </label>
+          <br/>
+          <input type="submit" value="Submit"/>
+        </form>}
+        {!this.props.firebase.auth.email &&
+        <p>You have to <a href={ROUTES.LOG_IN}>[Login]</a> first to post a review.</p>}
+      </div>
+
     );
   }
 }
