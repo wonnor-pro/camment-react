@@ -227,10 +227,10 @@ class CommentFormBase extends React.Component {
   }
 
   render() {
-    // console.log(this.props);
+    console.log(this.props);
     return (
       <div>
-        {this.props.firebase.auth.email &&
+        {this.props.firebase.auth.currentUser &&
         <form className="comment-form" onSubmit={this.handleSubmit}>
           <label>
           <textarea name="comment" id="user-review" placeholder="Type in your review here."
@@ -262,7 +262,7 @@ class CommentFormBase extends React.Component {
           <br/>
           <input type="submit" value="Submit"/>
         </form>}
-        {!this.props.firebase.auth.email &&
+        {!this.props.firebase.auth.currentUser &&
         <p>You have to <a href={ROUTES.LOG_IN}>[Login]</a> first to post a review.</p>}
       </div>
     );
