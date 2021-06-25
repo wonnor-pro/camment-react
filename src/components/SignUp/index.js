@@ -30,10 +30,6 @@ const SignUpPage = () => (
       <p>Cambridge Course Review Platform</p>
     </div>
   </div>
-  // <div>
-  //   <h1>SignUp</h1>
-  //   <SignUpForm />
-  // </div>
 );
 
 const INITIAL_STATE = {

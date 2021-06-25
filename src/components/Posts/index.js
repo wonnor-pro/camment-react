@@ -53,10 +53,14 @@ class PostsBase extends React.Component {
     // Declare all variables
 
     let courseName = event.target.id;
-    for (const [key, value] of Object.entries(this.state.dispSwitch)) {
-      this.state.dispSwitch[key] = "none";
+    for (const [key, ] of Object.entries(this.state.dispSwitch)) {
+      let newSwitch = this.state.dispSwitch;
+      newSwitch[key] = "none";
+      this.setState({...this.state, dispSwitch: newSwitch});
     }
-    this.state.dispSwitch[courseName] = "block";
+    let newSwitch = this.state.dispSwitch;
+    newSwitch[courseName] = "block";
+    this.setState({...this.state, dispSwitch: newSwitch});
 
     let tablinks = document.getElementsByClassName("tablinks");
     for (let i = 0; i < tablinks.length; i++) {

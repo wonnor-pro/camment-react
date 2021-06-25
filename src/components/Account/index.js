@@ -8,10 +8,6 @@ import {
   withAuthorization
 } from '../Session';
 import { withFirebase } from '../Firebase';
-import { PasswordForgetForm } from '../PasswordForget';
-import PasswordChangeForm from '../PasswordChange';
-import Footer from "../Footer";
-import {ACCOUNT} from "../../constants/routes";
 import SignOutButton from "../SignOut";
 
 const SIGN_IN_METHODS = [
@@ -266,7 +262,7 @@ class DefaultLoginToggle extends Component {
   }
 }
 
-const LoginManagement = withFirebase(LoginManagementBase);
+// const LoginManagement = withFirebase(LoginManagementBase);
 
 const condition = authUser => !!authUser;
 

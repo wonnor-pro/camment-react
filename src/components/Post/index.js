@@ -1,19 +1,18 @@
 import Navigation from "../Navigation";
 import React from "react";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faStar as faStarS, faStarHalf} from '@fortawesome/free-solid-svg-icons';
-import {faStar as faStarR} from '@fortawesome/free-regular-svg-icons';
+import {faStar as faStarS} from '@fortawesome/free-solid-svg-icons';
 import {withFirebase} from "../Firebase";
-import {REVIEWS} from "../../constants/routes";
-import { withRouter } from 'react-router-dom';
-import { compose } from 'recompose';
+import {withRouter} from 'react-router-dom';
+import {compose} from 'recompose';
 import StyledRating from "../Score";
 import UserStyledRating from "../Score/user";
+
 
 class PostForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {ID: this.props.match.params.ID, postsMap: {}, postsId: [], course:"", isFetching: false}
+    this.state = {ID: this.props.match.params.ID, postsMap: {}, postsId: [], course: "", isFetching: false}
     this.fetchPostAsync = this.fetchPostAsync.bind(this);
     this.fetchCourseAsync = this.fetchCourseAsync.bind(this);
     this.fetchSinglePostAsync = this.fetchSinglePostAsync.bind(this);
@@ -23,7 +22,7 @@ class PostForm extends React.Component {
     return courseRef.get(courseRef);
   }
 
-  async fetchSinglePostAsync(postRef, value){
+  async fetchSinglePostAsync(postRef, value) {
     return postRef.doc(value).get();
   }
 
@@ -41,10 +40,10 @@ class PostForm extends React.Component {
       for (const value of postsId) {
         const doc_post = await this.fetchSinglePostAsync(postRef, value);
         postMap[value] = doc_post.data();
-        }
+      }
       console.log(this.state.postsMap);
       console.log(this.state.course);
-      this.setState({...this.state, postsMap:postMap, postsId: postsId, course:course, isFetching: false});
+      this.setState({...this.state, postsMap: postMap, postsId: postsId, course: course, isFetching: false});
     } catch (e) {
       console.log(e);
       this.setState({...this.state, isFetching: false});
@@ -57,26 +56,21 @@ class PostForm extends React.Component {
   }
 
   render() {
-    console.log(this.state.course);
     return (
       <div className="Post">
         <Navigation/>
-        { this.state.isFetching &&
+        {this.state.isFetching &&
         <div className="post">
           <div className="load">{'Loading...'}</div>
         </div>
         }
-        { !this.state.isFetching &&
+        {!this.state.isFetching &&
         <div className="post">
           <div className="course-info">
             <p className="course-id">{this.state.ID}</p>
             <p className="review-counts">{this.state.course.num_posts} reviews</p>
             <p className="course-title">{this.state.course.name}</p>
-            {/*<p className="course-title">3A1</p>*/}
-            <a className="course-desc"
-               href={this.state.course.link}>
-              Course Syllabus
-            </a>
+            <a className="course-desc" href={this.state.course.link}>Course Syllabus</a>
             <StyledRating
               name="score"
               value={this.state.course.score}
@@ -92,7 +86,7 @@ class PostForm extends React.Component {
           <div className="comments-box">
             {this.state.postsId.map((postId, index) => {
               return (
-                <div className="comment-post" key = {index}>
+                <div className="comment-post" key={index}>
                   <div className="comment"> {this.state.postsMap[postId].content}</div>
                   <div className="comment-info">
                     <div>
@@ -120,9 +114,6 @@ class PostForm extends React.Component {
           </div>
           <div className="comment-input-group">
             <CommentForm/>
-            {/*<form className="comment-form">*/}
-            {/*  form here*/}
-            {/*</form>*/}
           </div>
         </div>
         }
@@ -244,7 +235,7 @@ class CommentFormBase extends React.Component {
             value={this.state.rating}
             icon={<FontAwesomeIcon icon={faStarS}/>}
             onChange={(event, newValue) => {
-              this.setState({... this.state, rating: newValue});
+              this.setState({...this.state, rating: newValue});
             }}
             precision={0.5}
             size="small"

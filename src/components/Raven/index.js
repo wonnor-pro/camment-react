@@ -1,6 +1,4 @@
 import * as ROUTES from "../../constants/routes";
-import SignOutButton from "../SignOut";
-import PasswordChangeForm from "../PasswordChange";
 import React, {Component} from 'react';
 import {withFirebase} from "../Firebase";
 import axios from "axios";

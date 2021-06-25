@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import * as ROUTES from '../../constants/routes';
-import email_svg from './images/email.svg';
 import raven_svg from './images/logo.svg';
 
 const Login = () => (
