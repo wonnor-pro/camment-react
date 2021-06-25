@@ -5,10 +5,16 @@ This repo is the React.js version of the camment project.  The primary aim for t
 ### Basic structure
 We use `react.js` to control the routing, rendering and page logics. At the same time, the `express` is used as the middleware together with the `passport.js` module to host the raven login (for cambridge student authentication).
 
+Firebase is used to host the user data.
+
 ### Test and run
 To test the repo, just download the node.js source code and run `npm install` to install the node modules. And run `npm run dev` to initiate the web app.
 
 The react app has been set up to the localhost port at 3000, the express server is set to be listening on the localhost:5000 port, which is de facto localhost:3000/raven via proxy. 
+
+![img](/public/img/homepage.png)
+![img](/public/img/review_page.png)
+![img](/public/img/mypost.png)
 
 
 ---
