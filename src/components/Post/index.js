@@ -97,7 +97,7 @@ class PostForm extends React.Component {
                       <div className="comment-year">{this.state.postsMap[postId].begin_year}-{this.state.postsMap[postId].begin_year+1}</div>
                       <UserStyledRating
                         name="score"
-                        value={this.state.course.score}
+                        value={this.state.postsMap[postId].score}
                         icon={<FontAwesomeIcon icon={faStarS}/>}
                         precision={0.5}
                         size="small"
