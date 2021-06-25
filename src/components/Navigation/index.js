@@ -23,7 +23,7 @@ const NavigationAuth = ({ authUser }) => (
   <nav>
     <div className="logo">
       <div id="logo-title">
-        # Camment _
+        # Camments _
       </div>
       <div id="slogan">
         Cambridge Course Review Platform
