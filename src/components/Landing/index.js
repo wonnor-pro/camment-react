@@ -8,7 +8,7 @@ const Landing = () => (
       <a className='home_nav_button' id='user_button' href={ROUTES.LOG_IN}>Log In</a>
     </div>
     <div className='home_title'>
-      # Camment _
+      # Camments _
     </div>
     <div className='home_slogan'>
       <p>Cambridge Engineering Course Review Platform</p>

@@ -15,7 +15,7 @@ const HomePage = () => (
       <SignOutButton />
     </div>
     <div className='home_title'>
-      # Camment _
+      # Camments _
     </div>
     <div className='home_slogan'>
       <p>Cambridge Engineering Course Review Platform</p>
