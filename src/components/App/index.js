@@ -11,7 +11,6 @@ import * as ROUTES from '../../constants/routes';
 import { withAuthentication } from '../Session';
 import {Post} from "../Post";
 import Login from "../Login";
-import RavenLanding from "../Raven";
 import MyPost from "../MyPost";
 import NotFound from "../NotFound";
 import {SuccessfulSubmission} from "../UserAction";
@@ -35,7 +34,6 @@ const App = () => (
         <Route path="/successful-submission/:ID" component={SuccessfulSubmission} />
         <Route path="/successful-deletion" component={SuccessfulDeletion} />
         <Route path={ROUTES.LOG_IN} component={Login} />
-        <Route path={ROUTES.RAVEN_LANDING} component={RavenLanding} />
         <Route path={ROUTES.MY_POSTS} component={MyPost} />
         <Route path={ROUTES.REPORT} component={Report} />
         <Route path='*' exact={true} component={NotFound} />
