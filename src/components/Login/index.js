@@ -3,7 +3,7 @@ import * as ROUTES from '../../constants/routes';
 import raven_svg from './images/logo.svg';
 import {withFirebase} from "../Firebase";
 import {withRouter} from "react-router-dom";
-import { compose } from 'recompose';
+import {compose} from 'recompose';
 
 class Login extends React.Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class Login extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(e){
+  handleClick(e) {
     this.props.firebase.auth
       .signInWithPopup(this.props.firebase.googleProvider)
       .then((result) => {
@@ -22,13 +22,16 @@ class Login extends React.Component {
         // TODO: Check if userRef is in the user database, if not set new userRef
         // No need to register, as we enabled google login already
         //
-        // const userRef = this.props.firebase.fs.collection("users").doc(crsid);
-        // userRef.set({
-        //   email: email,
-        //   name: "",
-        //   num_posts: 0,
-        //   posts: []
-        // })
+        this.props.firebase.fs.collection("users").doc(crsid).get().then((doc) => {
+          if (!(doc.exists)) {
+            this.props.firebase.fs.collection("users").doc(crsid).set({
+              email: email,
+              name: "",
+              num_posts: 0,
+              posts: []
+            })
+          }
+        });
 
 
         this.props.history.push(ROUTES.ACCOUNT);
@@ -57,7 +60,7 @@ class Login extends React.Component {
           {/*  <a className="user-box user-text" href={ROUTES.SIGN_IN}>Login or Register via Email</a>*/}
           {/*</div>*/}
           <div className="user-box login-group">
-            <img className="user-box login-img" src={raven_svg} alt="raven logo" />
+            <img className="user-box login-img" src={raven_svg} alt="raven logo"/>
             &nbsp;&nbsp;&nbsp;
             <a className="user-box user-text" onClick={this.handleClick}>Login or Register via Raven</a>
           </div>
