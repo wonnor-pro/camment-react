@@ -3,22 +3,20 @@
 This repo is the React.js version of the camments project.  The primary aim for the camment project is to provide a platform to share engineering course reviews for the University of Cambridge.
 
 ### Basic structure
-We use `react.js` to control the routing, rendering and page logics. At the same time, the `express` is used as the middleware together with the `passport.js` module to host the raven login (for cambridge student authentication).
-
-Firebase is used to host the user data.
+We use `react.js` to control the routing, rendering and page logics. 
+Firebase is used to host the user data. Authentication is done by `firebase`.
 
 ### Test and run
-To test the repo, just download the node.js source code and run `npm install` to install the node modules. And run `npm run dev` to initiate the web app.
+To test the repo, just download the node.js source code and run `npm install` to install the node modules. And run `npm start` to initiate the web app.
 
-The react app has been set up to the localhost port at 3000, the express server is set to be listening on the localhost:5000 port, which is de facto localhost:3000/raven via proxy. 
 
 
 ### Deploy
 When the project is finished, the web app will be hosted by firebase and accessible on [https://camments.com](https://camments.com).
 
-![img](/public/img/homepage.png)
-![img](/public/img/review_page.png)
-![img](/public/img/mypost.png)
+![img](/img/homepage.png)
+![img](/img/review_page.png)
+![img](/img/mypost.png)
 
 ### Acknowledgement
 

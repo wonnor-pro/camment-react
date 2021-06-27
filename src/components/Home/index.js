@@ -2,9 +2,9 @@ import './index.css';
 import React from 'react';
 import { compose } from 'recompose';
 
-import { withAuthorization} from '../Session';
 import SignOutButton from "../SignOut";
 import * as ROUTES from '../../constants/routes';
+import landingRedirection from "../Session/landing";
 
 const HomePage = () => (
   <div className='home'>
@@ -26,5 +26,5 @@ const HomePage = () => (
 const condition = authUser => !!authUser;
 
 export default compose(
-  withAuthorization(condition),
+  landingRedirection(condition),
 )(HomePage);

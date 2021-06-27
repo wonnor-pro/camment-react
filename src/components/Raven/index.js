@@ -19,7 +19,7 @@ class RavenLanding extends Component {
       <div id="main">
 
         <div id="title">
-          <h1># Camment _</h1>
+          <h1># Camments _</h1>
         </div>
         <div id="nav">
           <div className="nav-button" id="home-button"><a href={ROUTES.HOME}>Home</a></div>

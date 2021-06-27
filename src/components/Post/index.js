@@ -154,7 +154,7 @@ class CommentFormBase extends React.Component {
     this.state = {
       comment: '',  // content of new post
       year: 2020,  // default begin_year
-      score: 2.5,  // default score
+      rating: 2.5,  // default score
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -172,6 +172,7 @@ class CommentFormBase extends React.Component {
   }
 
   handleSubmit(event) {
+    console.log(this.state.rating);
     const currentUser = this.props.firebase.auth.currentUser.email;
 
     const crsId = currentUser.slice(0, currentUser.indexOf('@'));
