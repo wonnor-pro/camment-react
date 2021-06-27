@@ -15,9 +15,9 @@ const SignInPage = () => (
       <div className="nav-button" id="home-button"><a href={ROUTES.HOME}>Home</a></div>
       <div className="nav-button" id="review-button"><a href={ROUTES.REVIEWS}>Reviews</a></div>
     </div>
-    <div id="user-nav">
-      <div className="user-nav-button" id="logout-button"><a href={ROUTES.SIGN_UP}>Register</a></div>
-    </div>
+    {/*<div id="user-nav">*/}
+    {/*  <div className="user-nav-button" id="logout-button"><a href={ROUTES.SIGN_UP}>Register</a></div>*/}
+    {/*</div>*/}
 
 
     <div className="user-box" id="user-container">
