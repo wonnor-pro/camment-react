@@ -3,18 +3,25 @@ import React, {Component} from "react";
 import {withFirebase} from "../Firebase";
 import axios from "axios";
 import * as ROUTES from "../../constants/routes";
-import {withAuthorization} from "../Session";
+import {AuthUserContext, withAuthorization} from "../Session";
 import {compose} from "recompose";
 import UserStyledRating from "../Score/user";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faStar as faStarS} from "@fortawesome/free-solid-svg-icons";
 
 class MyPost extends Component {
+
+  static contextType = AuthUserContext;
+
   constructor(props) {
     super(props);
     // TODO: update the post information required
-    this.state = {ravenData: {}, postsMap: {}, user: "", postsId: [], isFetching: false};
-
+    this.state = {
+      crsid: "yy452",
+      postsMap: {},
+      user: "",
+      postsId: [],
+      isFetching: false};
     this.fetchUsersAsync = this.fetchUsersAsync.bind(this);
     this.fetchPostAsync = this.fetchPostAsync.bind(this);
     this.fetchSinglePostAsync = this.fetchSinglePostAsync.bind(this);
@@ -32,9 +39,8 @@ class MyPost extends Component {
   async fetchUsersAsync() {
     try {
       this.setState({...this.state, isFetching: true});
-      const response = await axios.get(ROUTES.USER_SERVICE_URL);
-      console.log(response);
-      const userId = response.data.crsid;
+      const userId = this.context.email.slice(0, this.context.email.indexOf('@'));
+      this.setState({...this.state, crsid: userId});
       const userRef = this.props.firebase.fs.collection("users").doc(userId);
       const postRef = this.props.firebase.fs.collection("posts");
 
@@ -54,7 +60,7 @@ class MyPost extends Component {
         postsMap: postMap,
         postsId: postsId,
         user: user_info,
-        ravenData: response.data,
+        ravenData: {},
         isFetching: false
       });
     } catch (e) {
@@ -70,7 +76,7 @@ class MyPost extends Component {
 
   handleDelete(post_Id) {
     console.log(this.state);
-    const userId = this.state.ravenData.crsid;
+    const userId = this.state.crsid;
     const userRef = this.props.firebase.fs.collection("users").doc(userId);
     const postRef = this.props.firebase.fs.collection("posts");
 
@@ -118,7 +124,6 @@ class MyPost extends Component {
   }
 
   render() {
-    console.log(this.state.ravenData.crsid);
     return (
       <div className="Post">
         <Navigation/>
@@ -131,8 +136,8 @@ class MyPost extends Component {
         <div className="post">
           <div className="course-info">
             {/* TODO: update this */}
-            <p className="my-id">{this.state.ravenData.crsid}</p>
-            <p className="post-counts">{this.state.user.num_posts} posts</p>
+            <p className="my-id">{this.state.crsid}</p>
+            <p className="post-counts">{this.state.user.num_posts === undefined ? 0 : this.state.user.num_posts} posts</p>
             <p className="mypost-title">My Posts</p>
           </div>
 
@@ -175,7 +180,7 @@ class MyPost extends Component {
         }
       </div>
     )
-  };
+  }
 }
 
 const condition = authUser => !!authUser;

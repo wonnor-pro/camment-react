@@ -33,6 +33,10 @@ class Firebase {
     /* Social Sign In Method Provider */
 
     this.googleProvider = new app.auth.GoogleAuthProvider();
+    this.googleProvider.addScope('profile email openid');
+    this.googleProvider.setCustomParameters({
+      'hd': 'cam.ac.uk'
+    });
     this.facebookProvider = new app.auth.FacebookAuthProvider();
     this.twitterProvider = new app.auth.TwitterAuthProvider();
   }
@@ -48,7 +52,7 @@ class Firebase {
     this.auth.signInWithEmailAndPassword(email, password);
 
   doSignInWithGoogle = () =>
-    this.auth.signInWithPopup(this.googleProvider);
+    this.auth.signInWithRedirect(this.googleProvider);
 
   doSignInWithFacebook = () =>
     this.auth.signInWithPopup(this.facebookProvider);

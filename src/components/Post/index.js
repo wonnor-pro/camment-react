@@ -239,7 +239,6 @@ class CommentFormBase extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div>
         {this.props.firebase.auth.currentUser &&

@@ -3,7 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="17bb37c9-cb0e-4de6-a219-9b0313f94abc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Firebase/firebase.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Firebase/firebase.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Login/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MyPost/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyPost/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Post/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Post/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/setupProxy.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +22,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -35,6 +44,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -93,6 +103,7 @@
       <workItem from="1624448069629" duration="145000" />
       <workItem from="1624448378729" duration="5958000" />
       <workItem from="1624636168534" duration="8197000" />
+      <workItem from="1624749348606" duration="5860000" />
     </task>
     <servers />
   </component>
