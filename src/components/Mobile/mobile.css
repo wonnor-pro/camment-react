@@ -1,0 +1,447 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    font-family: JetBrains Mono, serif;
+    font-style: normal;
+    font-weight: normal;
+}
+
+
+a:hover {
+    color: #FA9600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover::after {
+    border-color: #FA9600;
+    right: 0;
+}
+
+a {
+    color: inherit;
+    position: relative;
+    text-decoration: none;
+    transition: color .4s ease-out;
+}
+
+a::after {
+    border-radius: 1em;
+    border-top: .1em solid #FA9600;
+    content: "";
+    position: absolute;
+    right: 100%;
+    bottom: 0;
+    left: 0;
+    transition: right .4s cubic-bezier(0,.5,0,1),
+    border-color .4s ease-out;
+}
+
+body {
+    min-width: 300px;
+    background: rgba(245,245,245,1);
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.mobileApp {
+    text-align: center;
+}
+
+
+/* Home Page */
+
+.mobile-home-main{
+    height: 50vh;
+    padding: 10vh 0;
+    margin: 5vh 5vw;
+}
+
+.mobile-home-title{
+    padding: 5vh 0;
+    font-size: 7vw;
+    background: #3B434D;
+    color: white;
+}
+
+.mobile-home-slogan{
+    padding-top: 10vh;
+    font-size: 4vw;
+    color: #707070;
+}
+
+
+/* Course List */
+.mobile-main{
+    margin: 10vw;
+}
+
+.mobile-course-title {
+    font-size: 25px;
+    padding: 8px 0;
+}
+
+.mobile-course-id {
+    float: right;
+    font-size: 9vw;
+    color: rgba(59,67,77,0.4);
+}
+
+.mobile-review-counts {
+    font-size: 16px;
+    color: rgba(59,67,77,0.7);
+}
+
+/* Post layout */
+
+.mobile-post {
+    margin: auto;
+    text-align: left;
+    color: #3B434D;
+    padding-top: 20px;
+    padding-bottom: 70px;
+}
+
+.mobile-score {
+    padding-top: 1px;
+}
+.mobile-checked {
+    color: #FA9600;
+}
+
+.mobile-course-desc {
+
+
+}
+
+.mobile-post-entry {
+    clear: both;
+    padding: 30px 0 0 0;
+}
+
+.mobile-disclaimer {
+    color: #707070;
+    font-size: 90%;
+    /*border: solid 2px #3B434D;*/
+    border-radius: 10px;
+    padding: 10px 0;
+}
+.mobile-comments-box {
+    margin: 10px 0;
+    height: 600px;
+    overflow: auto;
+    border-top: #FA9600 solid 2px;
+    border-bottom: #FA9600 solid 2px;
+    /*border-radius: 10px;*/
+    padding: 0 7px;
+    color: #3B434D;
+}
+
+.mobile-comment-title {
+    padding-bottom: 16px;
+    font-family: Source Sans Pro, sans-serif;
+    font-weight: bold;
+}
+
+.mobile-comment-post {
+    font-size: 15px;
+    margin: 20px 0;
+    padding: 30px;
+    background-color: rgba(139, 156, 179, 0.1);
+    border-top-style: solid;
+    border-width: 15px;
+    border-radius: 7px;
+    text-align: justify;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 8px 0 rgba(0, 0, 0, 0.19);
+}
+
+.mobile-comment {
+    font-size: 14px;
+    text-align: left;
+}
+
+.mobile-comment-info {
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    color: #9a9a9a;
+}
+
+.mobile-user-name {
+    font-size: 120%;
+}
+
+.mobile-comment-form {
+    font-size: 14px;
+}
+
+.mobile-post-entry {
+    padding: 20px 0;
+}
+.mobile-comment-form input[type=text], select {
+    font-size: 16px;
+    color: #707070;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.mobile-rating {
+    vertical-align: -5%;
+}
+
+.mobile-comment-form textarea{
+    font-size: 14px;
+    color: #707070;
+    width: 100%;
+    height: 200px;
+    padding: 20px;
+    margin: 0 0 20px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-sizing: border-box;
+    outline: none;
+    resize: none;
+
+}
+
+.mobile-comment-form input[type=number]{
+    font-size: 14px;
+    color: #707070;
+    padding: 5px 0 5px 10px;
+    width:70px;
+    margin: 3px;
+    display: inline-block;
+    /*border: 1px solid #ccc;*/
+    border-radius: 50px;
+    /*box-sizing: border-box;*/
+    outline: none;
+    resize: none;
+
+}
+
+.mobile-comment-form input[type=submit] {
+    width: 100px;
+    background-color: rgba(245,245,245,1);
+    color: #3B434D;
+    margin: 5px 0;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: underline;
+    align-content: center;
+    float:right;
+}
+
+.mobile-comment-form input[type=submit]:hover {
+    color: #FA9600;
+    transition: color .4s ease;
+}
+
+.mobile-comment-form {
+    line-height: 1.6;
+}
+
+
+/* Footer */
+
+.footer{
+    margin: auto;
+    padding-top: 30px;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(59,67,77,0.4);
+    position: absolute;
+    bottom:5%;
+    left: 50%;
+    transform: translateX(-50%)
+}
+
+.mobile-report-issues {
+    margin: auto;
+    padding-top: 80px;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(59,67,77,0.4);
+}
+
+/* user */
+
+.mobile-login-main{
+    margin: 15vh 2vh 0 2vh;
+}
+
+.mobile-account-main{
+    margin: 10vh 2vh 0 2vh;
+}
+
+#mobile-user-container{
+    width: 100%;
+    margin: auto;
+    padding: 30px 0 25px 0;
+    text-align: center;
+    color: #EBEBEB;
+    background-color: #3B434D;
+}
+
+.mobile-user-title{
+    font-size: 20px;
+    text-decoration: overline;
+    padding-bottom: 20px;
+}
+
+#mobile-user-section{
+    padding-top: 10px;
+}
+
+.mobile-user-text{
+    font-size: 18px;
+}
+
+.mobile-account-heading{
+    font-size: 18px;
+    padding: 12px 0;
+}
+
+.mobile-login-group{
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0 10px 0;
+}
+
+.mobile-login-img{
+    width: 40px;
+    height: 40px;
+}
+
+.mobile-user-slogan{
+    padding: 30px 0;
+}
+
+.mobile-account-heading{
+    font-size: 18px;
+    padding: 12px 0;
+}
+
+.mobile-text-secondary{
+    color: #707070;
+    width: 60%;
+    border-left-style: solid;
+    border-left-color: #FA9600;
+    border-left-width: 7px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin: auto;
+    background: white;
+    padding: 12px 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Posts */
+
+
+/* Style the tab content */
+.mobile-tabcontent {
+    padding: 20px 0;
+    text-align: left;
+    /*display: none;*/
+}
+
+#mobile-post-lists {
+    overflow: auto;
+    /*width: 60%;*/
+    height: 45vh;
+    border: #3B434D;
+    border-style: dashed;
+    border-width: 2px;
+    border-radius: 10px;
+    padding: 0 10px;
+    color: #3B434D;
+}
+
+#mobile-post-lists >div{
+    margin: 20px 0;
+}
+
+.mobile-post-record {
+    border: #3B434D;
+    border-style: none;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.mobile-posts-course-title {
+    font-size: 23px;
+}
+
+.mobile-posts-course-id {
+    float: right;
+    font-size: 30px;
+    color: rgba(59,67,77,0.4);
+}
+
+.mobile-posts-review-counts {
+    font-size: 16px;
+    color: rgba(59,67,77,0.7);
+}
+
+/* MyPost */
+
+.mobile-course-title {
+    font-size: 25px;
+    padding: 0;
+}
+
+.mobile-user-id {
+    float: right;
+    font-size: 9vw;
+    color: rgba(59,67,77,0.4);
+}
+
+.mobile-posts-counts {
+    font-size: 16px;
+    color: rgba(59,67,77,0.7);
+}
+
+
+/* My Posts */
+
+.mobile-mypost-title {
+    font-size: 25px;
+}
+
+.mobile-my-subpost-title {
+    padding-bottom: 50px;
+}
+
+.mobile-my-id {
+    float: right;
+    font-size: 30px;
+    color: rgba(59,67,77,0.4);
+}
+
+.mobile-post-counts {
+    font-size: 16px;
+    color: rgba(59,67,77,0.7);
+}
+
+.mobile-my-comment-course {
+    font-size: 170%;
+    color: #3B434D;
+    float: left;
+}
+
+.mobile-post-delete {
+    padding: 0 6px;
+    float: right;
+}
