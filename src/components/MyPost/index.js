@@ -94,7 +94,11 @@ class MyPost extends Component {
       const index = course_posts.indexOf(post_Id);
       course_posts.splice(index, 1);
 
-      const avg_score = (course_score * (course_num_post - legacy_num) - post_info.score) / (new_course_num_post - legacy_num);
+      const no_legacy_num = new_course_num_post - legacy_num;
+      let avg_score = 0;
+      if (!no_legacy_num === 0) {
+        avg_score = (course_score * (course_num_post - legacy_num) - post_info.score) / (new_course_num_post - legacy_num);
+      }
 
       courseRef.set({
         num_posts: new_course_num_post,
