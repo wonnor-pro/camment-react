@@ -16,6 +16,21 @@ class Login extends React.Component {
     this.props.firebase.auth
       .signInWithPopup(this.props.firebase.googleProvider)
       .then((result) => {
+        const email = result.user.email;
+        const crsid = email.slice(0, email.indexOf('@'));
+
+        // TODO: Check if userRef is in the user database, if not set new userRef
+        // No need to register, as we enabled google login already
+        //
+        // const userRef = this.props.firebase.fs.collection("users").doc(crsid);
+        // userRef.set({
+        //   email: email,
+        //   name: "",
+        //   num_posts: 0,
+        //   posts: []
+        // })
+
+
         this.props.history.push(ROUTES.ACCOUNT);
       }).catch((error) => {
       this.props.history.push(ROUTES.RAVEN_LANDING);

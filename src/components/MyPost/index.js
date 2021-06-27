@@ -15,9 +15,8 @@ class MyPost extends Component {
 
   constructor(props) {
     super(props);
-    // TODO: update the post information required
     this.state = {
-      crsid: "yy452",
+      crsid: "unknown",
       postsMap: {},
       user: "",
       postsId: [],
@@ -135,7 +134,6 @@ class MyPost extends Component {
         {!this.state.isFetching &&
         <div className="post">
           <div className="course-info">
-            {/* TODO: update this */}
             <p className="my-id">{this.state.crsid}</p>
             <p className="post-counts">{this.state.user.num_posts === undefined ? 0 : this.state.user.num_posts} posts</p>
             <p className="mypost-title">My Posts</p>
