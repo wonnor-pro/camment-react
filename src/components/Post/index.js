@@ -9,22 +9,30 @@ import StyledRating from "../Score";
 import UserStyledRating from "../Score/user";
 import * as ROUTES from "../../constants/routes";
 
-
 class PostForm extends React.Component {
+  // at post page for each course, get all the existing posts and render
   constructor(props) {
     super(props);
-    this.state = {ID: this.props.match.params.ID, postsMap: {}, postsId: [], course: "", isFetching: false}
+    this.state = {
+      ID: this.props.match.params.ID,  // the course Id
+      postsMap: {},  // {key: postId, value post object}
+      postsId: [],  // the posts under this course
+      course: "",  // course name
+      isFetching: false
+    };
     this.fetchPostAsync = this.fetchPostAsync.bind(this);
     this.fetchCourseAsync = this.fetchCourseAsync.bind(this);
     this.fetchSinglePostAsync = this.fetchSinglePostAsync.bind(this);
   }
 
   async fetchCourseAsync(courseRef) {
+    // get the content of document
     return courseRef.get(courseRef);
   }
 
-  async fetchSinglePostAsync(postRef, value) {
-    return postRef.doc(value).get();
+  async fetchSinglePostAsync(postsRef, value) {
+    // get the document from post collection
+    return postsRef.doc(value).get();
   }
 
   async fetchPostAsync() {
@@ -32,19 +40,25 @@ class PostForm extends React.Component {
       this.setState({...this.state, isFetching: true});
       const course_id = this.state.ID;
       const courseRef = this.props.firebase.fs.collection("courses").doc(course_id);
-      const postRef = this.props.firebase.fs.collection("posts");
+      const postsRef = this.props.firebase.fs.collection("posts");
 
       const doc = await this.fetchCourseAsync(courseRef);
       const course = doc.data();
       const postsId = doc.get("posts");
-      const postMap = {};
+
+      const postMap = {};  // {key: postId, value post object}
       for (const value of postsId) {
-        const doc_post = await this.fetchSinglePostAsync(postRef, value);
+        const doc_post = await this.fetchSinglePostAsync(postsRef, value);
         postMap[value] = doc_post.data();
       }
-      console.log(this.state.postsMap);
-      console.log(this.state.course);
-      this.setState({...this.state, postsMap: postMap, postsId: postsId, course: course, isFetching: false});
+
+      this.setState({
+        ...this.state,
+        postsMap: postMap,
+        postsId: postsId,
+        course: course,
+        isFetching: false
+      });
     } catch (e) {
       console.log(e);
       this.setState({...this.state, isFetching: false});
@@ -134,12 +148,13 @@ class PostForm extends React.Component {
 
 
 class CommentFormBase extends React.Component {
+  // submit new post and store into firestore
   constructor(props) {
     super(props);
     this.state = {
-      comment: '',
-      year: 2020,
-      rating: 2.5,
+      comment: '',  // content of new post
+      year: 2020,  // default begin_year
+      score: 2.5,  // default score
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -160,10 +175,7 @@ class CommentFormBase extends React.Component {
     const currentUser = this.props.firebase.auth.currentUser.email;
 
     const crsId = currentUser.slice(0, currentUser.indexOf('@'));
-    console.log(crsId);
     const course_id = document.getElementsByClassName("course-id")[0].innerText;
-    // console.log("submitted");
-    console.log(course_id);
 
     const userRef = this.props.firebase.fs.collection("users").doc(crsId);
     const courseRef = this.props.firebase.fs.collection("courses").doc(course_id);
@@ -171,18 +183,18 @@ class CommentFormBase extends React.Component {
     // get user data from firestore
     userRef.get().then((doc) => {
       if (doc.exists) {
-        const num_post = doc.get("num_posts") + 1;
-        const postId = crsId + '_' + num_post.toString();
+        const new_num_post = doc.get("num_posts") + 1;  // one post added to user posts
+        const postId = crsId + '_' + new_num_post.toString();  // assign post id
         const new_posts = doc.get("posts");
         new_posts.push(postId);
 
-        //  write to user data
+        //  update user doc in users collection
         userRef.set({
-          num_posts: num_post,
+          num_posts: new_num_post,
           posts: new_posts
         }, {merge: true});
 
-        //  write to posts data
+        //  set timestamp as date of posting
         const today = new Date();
         const month = today.getMonth() + 1;
         let str_month = "";
@@ -192,12 +204,14 @@ class CommentFormBase extends React.Component {
           str_month = month.toString();
         }
         const date = today.getFullYear() + '-' + str_month + '-' + today.getDate();
-        // console.log(date);
+
+        // fetch user rated score
         let score = this.state.rating;
         if (score === null) {
           score = 0;
         }
 
+        // write a new post document with key as postId to posts collection
         this.props.firebase.fs.collection("posts").doc(postId).set({
           author: crsId,
           content: this.state.comment,
@@ -207,34 +221,30 @@ class CommentFormBase extends React.Component {
           timestamp: date
         });
 
-        // write to course data
+        // update course doc in courses collection
         courseRef.get().then((doc_course) => {
           const course_num_post = doc_course.get("num_posts");
-          const new_course_num_post = course_num_post + 1;
+          const legacy_num = doc_course.get("legacy_num");
+
+          const new_course_num_post = course_num_post + 1;  // one post added to num_posts
           const course_posts = doc_course.get("posts");
           const course_score = doc_course.get("score");
-          // console.log(course_posts);
-          course_posts.push(postId);
+          course_posts.push(postId);  // add to posts list
 
-          const avg_score = (course_score * course_num_post + this.state.rating) / new_course_num_post;
+          // calculate new average course score
+          const avg_score = (course_score * (course_num_post - legacy_num) + this.state.rating) / (new_course_num_post - legacy_num);
 
           this.props.firebase.fs.collection("courses").doc(course_id).set({
             num_posts: course_num_post + 1,
             posts: course_posts,
             score: avg_score
-
           }, {merge: true});
         });
-
       } else {
-        // doc.data() will be undefined in this case
         console.log("No such document!");
       }
     });
-    // alert('A comment was submitted: ' + this.state.comment + '\nCourse Taken in ' + this.state.year + '\n Rating is' + this.state.rating);
     event.preventDefault();
-
-    // to be decided, just for testing
     this.props.history.push("/successful-submission/" + course_id);
   }
 
@@ -253,7 +263,6 @@ class CommentFormBase extends React.Component {
             <UserStyledRating
               className="rating"
               name="score"
-              // defaultValue={this.state.rating}
               value={this.state.rating}
               icon={<FontAwesomeIcon icon={faStarS}/>}
               onChange={(event, newValue) => {
@@ -285,6 +294,7 @@ const CommentForm = compose(
   withRouter,
   withFirebase,
 )(CommentFormBase);
+
 const Post = withFirebase(PostForm);
 
 export {Post};

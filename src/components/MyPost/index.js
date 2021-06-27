@@ -1,7 +1,6 @@
 import Navigation from "../Navigation";
 import React, {Component} from "react";
 import {withFirebase} from "../Firebase";
-import axios from "axios";
 import * as ROUTES from "../../constants/routes";
 import {AuthUserContext, withAuthorization} from "../Session";
 import {compose} from "recompose";
@@ -20,7 +19,8 @@ class MyPost extends Component {
       postsMap: {},
       user: "",
       postsId: [],
-      isFetching: false};
+      isFetching: false
+    };
     this.fetchUsersAsync = this.fetchUsersAsync.bind(this);
     this.fetchPostAsync = this.fetchPostAsync.bind(this);
     this.fetchSinglePostAsync = this.fetchSinglePostAsync.bind(this);
@@ -46,14 +46,13 @@ class MyPost extends Component {
       const user_doc = await this.fetchPostAsync(userRef);
       const user_info = user_doc.data();
       const postsId = user_doc.get("posts");
-      const postMap = {};
+
+      const postMap = {};  // {key: postId, value: post object}
       for (const value of postsId) {
         const doc_post = await this.fetchSinglePostAsync(postRef, value);
         postMap[value] = doc_post.data();
       }
 
-      console.log(postMap);
-      console.log(user_info);
       this.setState({
         ...this.state,
         postsMap: postMap,
@@ -74,27 +73,28 @@ class MyPost extends Component {
   }
 
   handleDelete(post_Id) {
-    console.log(this.state);
+    // to delete a post
     const userId = this.state.crsid;
+
     const userRef = this.props.firebase.fs.collection("users").doc(userId);
     const postRef = this.props.firebase.fs.collection("posts");
-
     const courseRef = this.props.firebase.fs.collection("courses").doc(this.state.postsMap[post_Id].course_id);
 
-    console.log(post_Id);
-    console.log(this.state.postsMap[post_Id]);
     const post_info = this.state.postsMap[post_Id];
 
-    // reset courses
+    // updated course doc
     courseRef.get().then((doc_course) => {
       const course_num_post = doc_course.get("num_posts");
+      const legacy_num = doc_course.get("legacy_num");
+
       const new_course_num_post = course_num_post - 1;
 
       const course_posts = doc_course.get("posts");
       const course_score = doc_course.get("score");
       const index = course_posts.indexOf(post_Id);
       course_posts.splice(index, 1);
-      const avg_score = (course_score * course_num_post - post_info.score) / new_course_num_post;
+
+      const avg_score = (course_score * (course_num_post - legacy_num) - post_info.score) / (new_course_num_post - legacy_num);
 
       courseRef.set({
         num_posts: new_course_num_post,
@@ -103,15 +103,15 @@ class MyPost extends Component {
       }, {merge: true});
     });
 
-    //  reset posts
+    //  update posts collection by deleting the doc with postId as key
     postRef.doc(post_Id).delete();
 
-    //  reset user
+    //  update user doc in users collection
     userRef.get().then((doc) => {
       const num_post = doc.get("num_posts") - 1;
       const new_posts = doc.get("posts");
       const index = new_posts.indexOf(post_Id);
-      new_posts.splice(index,1);
+      new_posts.splice(index, 1);
       userRef.set({
         num_posts: num_post,
         posts: new_posts
@@ -119,7 +119,6 @@ class MyPost extends Component {
     });
 
     this.props.history.push("/successful-deletion");
-
   }
 
   render() {
@@ -135,7 +134,8 @@ class MyPost extends Component {
         <div className="post">
           <div className="course-info">
             <p className="my-id">{this.state.crsid}</p>
-            <p className="post-counts">{this.state.user.num_posts === undefined ? 0 : this.state.user.num_posts} posts</p>
+            <p
+              className="post-counts">{this.state.user.num_posts === undefined ? 0 : this.state.user.num_posts} posts</p>
             <p className="mypost-title">My Posts</p>
           </div>
 

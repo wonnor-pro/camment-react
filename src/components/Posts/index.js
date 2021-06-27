@@ -4,11 +4,18 @@ import React from "react";
 import {withFirebase} from "../Firebase";
 import StyledRating from "../Score";
 import {Link} from "react-router-dom";
+
 class PostsBase extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {dispSwitch: {}, division: [], coursesList: {}, isFetching: false};
+    this.state = {
+      dispSwitch: {},  // for the OnMouse switch func
+      division: [],   // list of divisions
+      coursesList: {},   // {key: division, value: [courseIds]}
+      isFetching: false
+    };
+
     this.openModule = this.openModule.bind(this);
     this.readModule = this.readModule.bind(this);
     this.fetchPostsAsync = this.fetchPostsAsync.bind(this);
@@ -26,18 +33,22 @@ class PostsBase extends React.Component {
       querySnapshot.forEach((doc) => {
         const id = doc.get("course_id");
         const new_division = id.slice(0, 2);
-        if (!(new_division in this.state.coursesList)) {
+
+        // add new pair to courses list if not yet
+        if (!(new_division in coursesList)) {
           coursesList[new_division] = [];
           dispSwitch[new_division] = "none";
           division.push(new_division);
         }
-        // coursesRef.doc(id).set({
-        //   posts: []
-        // }, {merge: true})
         coursesList[new_division].push(doc.data());
-        this.setState({dispSwitch: dispSwitch, division: division, coursesList: coursesList, isFetching: false});
       });
 
+      this.setState({
+        dispSwitch: dispSwitch,
+        division: division,
+        coursesList: coursesList,
+        isFetching: false
+      });
     } catch (e) {
       console.log(e);
       this.setState({...this.state, isFetching: false});
@@ -45,15 +56,15 @@ class PostsBase extends React.Component {
   };
 
   async readModule() {
+    // read through all the documents in courses collection
     const coursesRef = this.props.firebase.fs.collection("courses");
     return coursesRef.where("course_id", ">=", "3A").get()
   }
 
   openModule(event) {
     // Declare all variables
-
     let courseName = event.target.id;
-    for (const [key, ] of Object.entries(this.state.dispSwitch)) {
+    for (const [key,] of Object.entries(this.state.dispSwitch)) {
       let newSwitch = this.state.dispSwitch;
       newSwitch[key] = "none";
       this.setState({...this.state, dispSwitch: newSwitch});
@@ -112,7 +123,7 @@ class PostsBase extends React.Component {
                             />
                           </div>
                           <Link to={"/Post/" + course.course_id}
-                             className="course-title">{course.name}</Link>
+                                className="course-title">{course.name}</Link>
                         </div>
                       )
                     })}
