@@ -18,9 +18,9 @@ When the project is finished, the web app will be hosted by firebase and accessi
 ![img](/img/review_page.png)
 ![img](/img/mypost.png)
 <p float="left">
-  <img src="/img/mobile_home.PNG" width="100" />
-  <img src="/img/mobile_post.jpeg" width="100" /> 
-  <img src="/img/mobile_raven.PNG" width="100" />
+  <img src="/img/mobile_home.PNG" width="200" />
+  <img src="/img/mobile_post.jpeg" width="200" /> 
+  <img src="/img/mobile_raven.PNG" width="200" />
 </p>
 
 ### Acknowledgement
