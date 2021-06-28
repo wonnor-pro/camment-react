@@ -80,14 +80,12 @@ class MobileReviews extends React.Component {
 
   openModule(courseName) {
     // Declare all variables
-    for (const [key,] of Object.entries(this.state.dispSwitch)) {
-      let newSwitch = this.state.dispSwitch;
-      newSwitch[key] = "none";
-      this.setState({...this.state, dispSwitch: newSwitch});
-    }
     let newSwitch = this.state.dispSwitch;
+    for (const [key,] of Object.entries(this.state.dispSwitch)) {
+      newSwitch[key] = "none";
+    }
     newSwitch[courseName] = "block";
-    this.setState({...this.state, dispSwitch: newSwitch});
+    this.setState({...this.state, userDivision: courseName, dispSwitch: newSwitch});
 
     this.forceUpdate();
   }
@@ -99,7 +97,6 @@ class MobileReviews extends React.Component {
   }
 
   handleChange(event){
-    this.setState({...this.state, userDivision: event.target.value});
     this.openModule(event.target.value);
   };
 

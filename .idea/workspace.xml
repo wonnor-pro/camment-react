@@ -2,46 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17bb37c9-cb0e-4de6-a219-9b0313f94abc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Mobile/AppBar/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Mobile/Home/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Mobile/Post/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Mobile/Reviews/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Mobile/mobile.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Mobile/Account/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Mobile/Login/images/email.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Mobile/Login/images/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Mobile/Login/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Mobile/MyPost/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Mobile/NotFound/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Mobile/Report/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Mobile/Users/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Account/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Account/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Account/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Account/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Admin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Admin/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Footer/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Home/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Home/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Landing/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Landing/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Login/images/email.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Login/images/email.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Login/images/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Login/images/logo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Login/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Login/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Messages/MessageItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Messages/MessageItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Messages/MessageList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Messages/MessageList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Messages/Messages.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Messages/Messages.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Messages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Messages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MyPost/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/MyPost/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navigation/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Navigation/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NotFound/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/NotFound/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Post/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Post/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Posts/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Posts/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Posts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Posts/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Raven/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Raven/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Report/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Report/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Reviews/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Reviews/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Reviews/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Reviews/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Score/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Score/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Score/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Score/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SignIn/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/SignIn/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SignIn/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/SignIn/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SignUp/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/SignUp/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UserAction/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/UserAction/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Users/UserItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Users/UserItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Users/UserList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Users/UserList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Users/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Users/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Desktop/MyPost/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/MyPost/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Desktop/Post/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Post/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Mobile/AppBar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Mobile/AppBar/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Mobile/Home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Mobile/Home/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Mobile/Post/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Mobile/Post/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Mobile/Reviews/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Mobile/Reviews/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Mobile/mobile.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Mobile/mobile.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,17 +45,17 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/components/Desktop/Login/index.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/components/Desktop/Post/index.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/components/Firebase/firebase.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/package.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/components/SignOut/index.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/components/Desktop/Account/index.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/components/Desktop/MyPost/index.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/components/App/index.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/constants/routes.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/components/Desktop/Raven/index.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/components/Desktop/SignIn/index.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/Desktop/Login/index.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/Desktop/Raven/index.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/constants/routes.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/package.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/Desktop/Post/index.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/SignOut/index.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/App/index.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/Desktop/Account/index.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/components/Firebase/index.js" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1tuaZNN7Ar7JNOdqvmiOQPe4mKO" />
@@ -92,21 +69,22 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Mobile/Post" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Mobile/NotFound" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/src/components/Desktop/Post/index.js" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/components/Mobile/Post" />
-      <recent name="$PROJECT_DIR$/src/components/Mobile/Reviews" />
-      <recent name="$PROJECT_DIR$/src/components/Mobile/AppBar" />
-      <recent name="$PROJECT_DIR$/src/components/Mobile" />
-      <recent name="$PROJECT_DIR$/src/components/Session" />
+      <recent name="$PROJECT_DIR$/src/components/Mobile/NotFound" />
+      <recent name="$PROJECT_DIR$/src/components/Mobile/Report" />
+      <recent name="$PROJECT_DIR$/src/components/Mobile/MyPost" />
+      <recent name="$PROJECT_DIR$/src/components/Mobile/Account" />
+      <recent name="$PROJECT_DIR$/src/components/Mobile/Login" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/components" />

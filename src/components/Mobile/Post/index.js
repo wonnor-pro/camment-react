@@ -130,7 +130,7 @@ class MobilePostForm extends React.Component {
                     <div className="mobile-comment-info">
                       <div>
                         <div className="mobile-comment-date">{this.state.postsMap[postId].timestamp}</div>
-                        <div className="mobile-user-name">{this.state.postsMap[postId].author}</div>
+                        <div className="mobile-user-name">{this.state.postsMap[postId].author.replace(/[0-9]/g, '')}</div>
                       </div>
                       <div>
                         <div
@@ -197,7 +197,7 @@ class MobileCommentFormBase extends React.Component {
     const currentUser = this.props.firebase.auth.currentUser.email;
 
     const crsId = currentUser.slice(0, currentUser.indexOf('@'));
-    const course_id = document.getElementsByClassName("course-id")[0].innerText;
+    const course_id = document.getElementsByClassName("mobile-course-id")[0].innerText;
 
     const userRef = this.props.firebase.fs.collection("users").doc(crsId);
     const courseRef = this.props.firebase.fs.collection("courses").doc(course_id);
@@ -206,7 +206,7 @@ class MobileCommentFormBase extends React.Component {
     userRef.get().then((doc) => {
       if (doc.exists) {
         const new_num_post = doc.get("num_posts") + 1;  // one post added to user posts
-        const postId = crsId + '_' + new_num_post.toString();  // assign post id
+        const postId = crsId + '_' + Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 6);  // assign post id
         const new_posts = doc.get("posts");
         new_posts.push(postId);
 
@@ -314,7 +314,7 @@ class MobileCommentFormBase extends React.Component {
 
 const MobileCommentForm = compose(
   withRouter,
-  withFirebase,
+  withFirebase
 )(MobileCommentFormBase);
 
 const MobilePost = withFirebase(MobilePostForm);

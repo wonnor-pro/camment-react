@@ -1,14 +1,25 @@
-import Navigation from "../Navigation";
 import React, {Component} from "react";
 import {withFirebase} from "../../Firebase";
 import * as ROUTES from "../../../constants/routes";
 import {AuthUserContext, withAuthorization} from "../../Session";
 import {compose} from "recompose";
-import UserStyledRating from "../Score/user";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faStar as faStarS} from "@fortawesome/free-solid-svg-icons";
+import {Button} from "@material-ui/core";
+import {withStyles} from "@material-ui/core/styles";
+import Rating from "@material-ui/lab/Rating";
 
-class MyPost extends Component {
+const UserStyledRating = withStyles({
+  iconFilled: {
+    color: '#3B434D',
+  },
+  iconHover: {
+    color: '#FA9600',
+  },
+})(Rating);
+
+
+class MobileMyPost extends Component {
 
   static contextType = AuthUserContext;
 
@@ -95,12 +106,11 @@ class MyPost extends Component {
       course_posts.splice(index, 1);
 
       const no_legacy_num = new_course_num_post - legacy_num;
-      console.log("non legacy post number" + no_legacy_num);
       let avg_score = 0;
       if (no_legacy_num !== 0) {
         avg_score = (course_score * (course_num_post - legacy_num) - post_info.score) / (new_course_num_post - legacy_num);
       }
-      console.log("new score" + avg_score);
+
       courseRef.set({
         num_posts: new_course_num_post,
         posts: course_posts,
@@ -122,65 +132,73 @@ class MyPost extends Component {
         posts: new_posts
       }, {merge: true});
     });
-    alert("stop here");
+
     this.props.history.push("/successful-deletion");
   }
 
   render() {
     return (
       <div className="Post">
-        <Navigation/>
-        {this.state.isFetching &&
-        <div className="post">
-          <div className="load">{'Loading...'}</div>
-        </div>
-        }
-        {!this.state.isFetching &&
-        <div className="post">
-          <div className="course-info">
-            <p className="my-id">{this.state.crsid}</p>
-            <p
-              className="post-counts">{this.state.user.num_posts === undefined ? 0 : this.state.user.num_posts} posts</p>
-            <p className="mypost-title">My Posts</p>
+        <div className="mobile-main">
+          {this.state.isFetching &&
+          <div className="mobile-post">
+            <div className="load">{'Loading...'}</div>
           </div>
+          }
+          {!this.state.isFetching &&
+          <div className="mobile-post">
+            <div className="mobile-course-info">
+              <p className="mobile-user-id">{this.state.crsid}</p>
+              <p
+                className="mobile-post-counts">{this.state.user.num_posts === undefined ? 0 : this.state.user.num_posts} posts</p>
+              <p className="mobile-course-title">My Posts</p>
+            </div>
 
-          <div className="comments-box">
-            {this.state.postsId.map((postId, index) => {
-              return (
-                <div className="comment-post" key={index}>
-                  <div className="my-subpost-title">
-                    <div className="my-comment-course">{this.state.postsMap[postId].course_id}</div>
-                    <a className="post-delete" onClick={() => this.handleDelete(postId)}>Delete</a>
-                  </div>
-                  <div className="comment"> {this.state.postsMap[postId].content}</div>
-                  <div className="comment-info">
-                    <div>
-                      <div className="comment-date">{this.state.postsMap[postId].timestamp}</div>
-                      <div className="user-name">{this.state.postsMap[postId].author}</div>
+            <div className="mobile-comments-box">
+              {this.state.postsId.map((postId, index) => {
+                return (
+                  <div className="mobile-comment-post" key={index}>
+                    <div className="my-subpost-title">
+                      <div className="mobile-my-comment-course">{this.state.postsMap[postId].course_id}</div>
+                      <Button
+                        className="mobile-post-delete"
+                        variant="contained"
+                        color="primary"
+                        onClick={() => this.handleDelete(postId)}
+                      >
+                        Delete
+                      </Button>
                     </div>
-                    <div>
-                      <div
-                        className="comment-year">{this.state.postsMap[postId].begin_year}-{this.state.postsMap[postId].begin_year + 1}</div>
-                      <UserStyledRating
-                        name="score"
-                        value={this.state.postsMap[postId].score}
-                        icon={<FontAwesomeIcon icon={faStarS}/>}
-                        precision={0.5}
-                        size="small"
-                        readOnly
-                      />
+                    <div className="mobile-comment"> {this.state.postsMap[postId].content}</div>
+                    <div className="mobile-comment-info">
+                      <div>
+                        <div className="mobile-comment-date">{this.state.postsMap[postId].timestamp}</div>
+                        <div className="mobile-user-name">{this.state.postsMap[postId].author}</div>
+                      </div>
+                      <div>
+                        <div
+                          className="mobile-comment-year">{this.state.postsMap[postId].begin_year}-{this.state.postsMap[postId].begin_year + 1}</div>
+                        <UserStyledRating
+                          name="score"
+                          value={this.state.postsMap[postId].score}
+                          icon={<FontAwesomeIcon icon={faStarS}/>}
+                          precision={0.5}
+                          size="small"
+                          readOnly
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-              )
-            })}
+                )
+              })}
+            </div>
+            <div className="mobile-report-issues">
+              <p>Copyright &copy; 2021 ｜ <a href={ROUTES.REPORT}> Report an issue here</a> or contact us at <a
+                href={"mailto:admin@camments.com"}>admin@camments.com</a></p>
+            </div>
           </div>
-          <div className="report-issues">
-            <p>Copyright &copy; 2021 ｜ <a href={ROUTES.REPORT}> Report an issue here</a> or contact us at <a
-              href={"mailto:admin@camments.com"}>admin@camments.com</a></p>
-          </div>
+          }
         </div>
-        }
       </div>
     )
   }
@@ -191,4 +209,4 @@ const condition = authUser => !!authUser;
 export default compose(
   withFirebase,
   withAuthorization(condition)
-)(MyPost);
+)(MobileMyPost);

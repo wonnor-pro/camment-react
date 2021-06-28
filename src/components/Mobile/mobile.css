@@ -358,8 +358,7 @@ body {
 
 #mobile-post-lists {
     overflow: auto;
-    /*width: 60%;*/
-    height: 45vh;
+    height: 50vh;
     border: #3B434D;
     border-style: dashed;
     border-width: 2px;

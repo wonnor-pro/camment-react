@@ -110,7 +110,7 @@ class PostForm extends React.Component {
                   <div className="comment-info">
                     <div>
                       <div className="comment-date">{this.state.postsMap[postId].timestamp}</div>
-                      <div className="user-name">{this.state.postsMap[postId].author}</div>
+                      <div className="user-name">{this.state.postsMap[postId].author.replace(/[0-9]/g, '')}</div>
                     </div>
                     <div>
                       <div
@@ -185,7 +185,7 @@ class CommentFormBase extends React.Component {
     userRef.get().then((doc) => {
       if (doc.exists) {
         const new_num_post = doc.get("num_posts") + 1;  // one post added to user posts
-        const postId = crsId + '_' + new_num_post.toString();  // assign post id
+        const postId = crsId + '_' + Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 6);  // assign post id
         const new_posts = doc.get("posts");
         new_posts.push(postId);
 
@@ -293,7 +293,7 @@ class CommentFormBase extends React.Component {
 
 const CommentForm = compose(
   withRouter,
-  withFirebase,
+  withFirebase
 )(CommentFormBase);
 
 const Post = withFirebase(PostForm);
