@@ -2,23 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17bb37c9-cb0e-4de6-a219-9b0313f94abc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Mobile/Account/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Mobile/Login/images/email.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Mobile/Login/images/logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Mobile/Login/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Mobile/MyPost/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Mobile/NotFound/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Mobile/Report/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Mobile/Users/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/mobile_home.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/mobile_raven.PNG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Desktop/MyPost/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/MyPost/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Desktop/Post/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Post/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Mobile/AppBar/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Mobile/AppBar/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Mobile/Home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Mobile/Home/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Mobile/Post/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Mobile/Post/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Mobile/Reviews/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Mobile/Reviews/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Mobile/mobile.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Mobile/mobile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,11 +74,11 @@
       <recent name="$PROJECT_DIR$/src/components/Mobile/Login" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/img" />
       <recent name="$PROJECT_DIR$/src/components" />
       <recent name="$PROJECT_DIR$/src/components/Desktop" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$/public/img" />
     </key>
   </component>
   <component name="RunManager" selected="npm.npm start">
