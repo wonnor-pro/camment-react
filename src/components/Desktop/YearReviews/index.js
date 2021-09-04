@@ -79,7 +79,7 @@ class PostsBase extends React.Component {
           }
           coursesList[new_division].push(doc.data());
         });
-      }
+      };
 
       this.setState({
         dispSwitch: dispSwitch,
@@ -155,7 +155,11 @@ class PostsBase extends React.Component {
           <div id="main">
             <div id="review">
               <div className="tab">
-                <h3 id="tab-title">Part IIA</h3>
+                {(this.state.year == "iia") ? (
+                  <h3 id="tab-title">Part IIA</h3>
+                ) : (
+                  <h3 id="tab-title">Part IIB</h3>
+                )}
                 <div className="load">{this.state.isFetching ? 'Loading...' : ''}</div>
                 {this.state.division.map((value, index) => {
                   return (

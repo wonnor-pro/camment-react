@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8bd04198-6a5e-4657-b2aa-70bf446582d2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Mobile/YearReviews/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Desktop/Reviews/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Reviews/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Desktop/Reviews/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Reviews/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Desktop/YearReviews/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/YearReviews/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Desktop/YearReviews/part2b.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/YearReviews/part2b.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Mobile/Reviews/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Mobile/Reviews/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Mobile/mobile.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Mobile/mobile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Desktop/YearReviews/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/YearReviews/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Mobile/YearReviews/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Mobile/YearReviews/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
