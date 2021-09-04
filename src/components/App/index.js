@@ -29,6 +29,7 @@ import MobileReport from "../Mobile/Report";
 import {MobileSuccessfulSubmission, MobileSuccessfulDeletion} from "../Mobile/Users";
 import MobileNotFound from "../Mobile/NotFound";
 import MobileAccountPage from "../Mobile/Account";
+import MobileYearReviews from "../Mobile/YearReviews";
 
 // Set theme
 const theme = createMuiTheme({
@@ -71,7 +72,7 @@ class App extends React.Component {
             <Route path={ROUTES.SIGN_IN} component={SignInPage}/>
             <Route path={ROUTES.ACCOUNT} component={AccountPage}/>
             <Route path={ROUTES.REVIEWS} exact={true} component={Reviews}/>
-            <Route path="/Reviews/:YEAR" component={YearReviews}/>
+            <Route path="/reviews/:YEAR" component={YearReviews}/>
             <Route path="/Post/:ID" component={Post}/>
             <Route path="/successful-submission/:ID" component={SuccessfulSubmission}/>
             <Route path="/successful-deletion" component={SuccessfulDeletion}/>
@@ -95,7 +96,8 @@ class App extends React.Component {
               <Route exact path={ROUTES.HOME} component={MobileHomePage}/>
               <Route path={ROUTES.LANDING} component={MobileHomePage}/>
               <Route path={ROUTES.ACCOUNT} component={MobileAccountPage}/>
-              <Route path={ROUTES.REVIEWS} component={MobileReviews}/>
+              <Route path={ROUTES.REVIEWS} exact={true} component={MobileReviews}/>
+              <Route path="/reviews/:YEAR" component={MobileYearReviews}/>
               <Route path="/Post/:ID" component={MobilePost}/>
               <Route path="/successful-submission/:ID" component={MobileSuccessfulSubmission}/>
               <Route path="/successful-deletion" component={MobileSuccessfulDeletion}/>
