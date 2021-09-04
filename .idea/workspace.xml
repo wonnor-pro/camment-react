@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17bb37c9-cb0e-4de6-a219-9b0313f94abc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Desktop/YearReviews/part2b.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/App/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Desktop/Posts/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/YearReviews/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Desktop/Posts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/YearReviews/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Desktop/Reviews/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Reviews/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Desktop/Reviews/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Reviews/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Desktop/YearReviews/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/YearReviews/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Mobile/Reviews/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Mobile/Reviews/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Mobile/mobile.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Mobile/mobile.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +60,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Mobile/NotFound" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Mobile" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
@@ -70,11 +71,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/Mobile" />
+      <recent name="$PROJECT_DIR$/src/components/Desktop/YearReviews" />
       <recent name="$PROJECT_DIR$/src/components/Mobile/NotFound" />
       <recent name="$PROJECT_DIR$/src/components/Mobile/Report" />
       <recent name="$PROJECT_DIR$/src/components/Mobile/MyPost" />
-      <recent name="$PROJECT_DIR$/src/components/Mobile/Account" />
-      <recent name="$PROJECT_DIR$/src/components/Mobile/Login" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/img" />
