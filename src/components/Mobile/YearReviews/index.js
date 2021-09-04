@@ -24,6 +24,7 @@ class MobileYearReviews extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      year: this.props.match.params.YEAR,
       dispSwitch: {},  // for the OnMouse switch func
       division: [],   // list of divisions
       coursesList: {},   // {key: division, value: [courseIds]}
@@ -45,7 +46,6 @@ class MobileYearReviews extends React.Component {
   async fetchPostsAsync() {
     try {
       this.setState({...this.state, isFetching: true});
-      const querySnapshot = await this.readModule();
 
       let division = [];
       let coursesList = {};
@@ -165,7 +165,7 @@ class MobileYearReviews extends React.Component {
         <div className="mobile-division">
           <p>Select the course division</p>
           <FormControl variant="outlined" style={{minWidth: 250}}>
-            {this.state.year == "iia" ? (
+            {(this.state.year == "iia") ? (
               <InputLabel id="demo-simple-select-outlined-label">Part IIA</InputLabel>
             ) : (
               <InputLabel id="demo-simple-select-outlined-label">Part IIB</InputLabel>
