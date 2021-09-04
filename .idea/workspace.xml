@@ -3,7 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="17bb37c9-cb0e-4de6-a219-9b0313f94abc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Desktop/Posts/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/YearReviews/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Desktop/Posts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/YearReviews/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Desktop/Reviews/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Reviews/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Desktop/Reviews/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Reviews/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Mobile/mobile.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Mobile/mobile.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

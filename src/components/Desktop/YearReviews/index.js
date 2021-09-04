@@ -4,12 +4,15 @@ import React from "react";
 import {withFirebase} from "../../Firebase";
 import StyledRating from "../Score";
 import {Link} from "react-router-dom";
+import Navigation from "../Navigation";
+import * as ROUTES from "../../../constants/routes";
 
 class PostsBase extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
+      year: this.props.match.params.YEAR,
       dispSwitch: {},  // for the OnMouse switch func
       division: [],   // list of divisions
       coursesList: {},   // {key: division, value: [courseIds]}
@@ -89,55 +92,62 @@ class PostsBase extends React.Component {
 
   render() {
     return (
-      <div className="posts">
-        <div id="main">
-          <div id="review">
-            <div className="tab">
-              <h3 id="tab-title">Part IIA</h3>
-              <div className="load">{this.state.isFetching ? 'Loading...' : ''}</div>
+      <div className="Reviews">
+        <Navigation />
+        <div className="posts">
+          <div id="main">
+            <div id="review">
+              <div className="tab">
+                <h3 id="tab-title">Part IIA</h3>
+                <div className="load">{this.state.isFetching ? 'Loading...' : ''}</div>
+                {this.state.division.map((value, index) => {
+                  return (
+                    <button className="tablinks" key={index} id={value} onMouseOver={this.openModule}
+                            onClick={this.openModule}>{value}
+                    </button>
+                  )
+                })}
+              </div>
               {this.state.division.map((value, index) => {
                 return (
-                  <button className="tablinks" key={index} id={value} onMouseOver={this.openModule}
-                          onClick={this.openModule}>{value}
-                  </button>
+                  <div id={value} key={index} className="tabcontent" style={{display: this.state.dispSwitch[value]}}>
+                    <div id="post-lists">
+                      {this.state.coursesList[value].map((course, index) => {
+                        return (
+                          <div className="post-record" key={index}>
+                            <p className="course-id">{course.course_id}</p>
+                            <p className="review-counts">{course.num_posts} Reviews</p>
+                            <div className="score_wrapper">
+                              <StyledRating
+                                name="score"
+                                value={course.score}
+                                icon={<FontAwesomeIcon icon={faStarS}/>}
+                                precision={0.5}
+                                size="small"
+                                readOnly
+                              />
+                            </div>
+                            <Link to={"/Post/" + course.course_id}
+                                  className="course-title">{course.name}</Link>
+                          </div>
+                        )
+                      })}
+                    </div>
+                  </div>
                 )
               })}
             </div>
-            {this.state.division.map((value, index) => {
-              return (
-                <div id={value} key={index} className="tabcontent" style={{display: this.state.dispSwitch[value]}}>
-                  <div id="post-lists">
-                    {this.state.coursesList[value].map((course, index) => {
-                      return (
-                        <div className="post-record" key={index}>
-                          <p className="course-id">{course.course_id}</p>
-                          <p className="review-counts">{course.num_posts} Reviews</p>
-                          <div className="score_wrapper">
-                            <StyledRating
-                              name="score"
-                              value={course.score}
-                              icon={<FontAwesomeIcon icon={faStarS}/>}
-                              precision={0.5}
-                              size="small"
-                              readOnly
-                            />
-                          </div>
-                          <Link to={"/Post/" + course.course_id}
-                                className="course-title">{course.name}</Link>
-                        </div>
-                      )
-                    })}
-                  </div>
-                </div>
-              )
-            })}
           </div>
+        </div>
+        <div className="report-issues">
+          <p>Copyright &copy; 2021 ｜ <a href={ROUTES.REPORT}> Report an issue here</a> or contact us at <a
+            href={"mailto:admin@camments.com"}>admin@camments.com</a></p>
         </div>
       </div>
     );
   }
 }
 
-const Posts = withFirebase(PostsBase);
+const YearReviews = withFirebase(PostsBase);
 
-export {Posts};
+export {YearReviews};
