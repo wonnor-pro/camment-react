@@ -354,7 +354,7 @@ body {
 
 #mobile-part-lists {
     overflow: auto;
-    height: 80vh;
+    height: 60vh;
     border: #3B434D;
     border-style: dashed;
     border-width: 2px;

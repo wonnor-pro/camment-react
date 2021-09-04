@@ -40,3 +40,4 @@ yarn-error.log*
 .firebaserc
 
 .idea/
+.idea/workspace.xml
