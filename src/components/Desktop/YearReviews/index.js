@@ -20,31 +20,66 @@ class PostsBase extends React.Component {
     };
 
     this.openModule = this.openModule.bind(this);
-    this.readModule = this.readModule.bind(this);
+
+    this.readIIaModule = this.readIIaModule.bind(this);
+    this.readIIbModule = this.readIIbModule.bind(this);
+    this.readListModule = this.readListModule.bind(this);
+
     this.fetchPostsAsync = this.fetchPostsAsync.bind(this);
+    this.fetchYearCourse = this.fetchYearCourse.bind(this);
   }
 
   async fetchPostsAsync() {
     try {
       this.setState({...this.state, isFetching: true});
-      const querySnapshot = await this.readModule();
-
       let division = [];
       let coursesList = {};
       let dispSwitch = {};
 
-      querySnapshot.forEach((doc) => {
-        const id = doc.get("course_id");
-        const new_division = id.slice(0, 2);
+      if (this.state.year === "iib") {
+        const querySnapshot = await this.readIIbModule();
 
-        // add new pair to courses list if not yet
-        if (!(new_division in coursesList)) {
-          coursesList[new_division] = [];
-          dispSwitch[new_division] = "none";
-          division.push(new_division);
-        }
-        coursesList[new_division].push(doc.data());
-      });
+        querySnapshot.forEach((doc) => {
+          const id = doc.get("course_id");
+          const new_division = id.slice(0, 2);
+
+          // add new pair to courses list if not yet
+          if (!(new_division in coursesList)) {
+            coursesList[new_division] = [];
+            dispSwitch[new_division] = "none";
+            division.push(new_division);
+          }
+          coursesList[new_division].push(doc.data());
+        });
+      } else {
+        const querySnapshot = await this.readIIaModule();
+        querySnapshot.forEach((doc) => {
+          const id = doc.get("course_id");
+          const new_division = id.slice(0, 2);
+
+          // add new pair to courses list if not yet
+          if (!(new_division in coursesList)) {
+            coursesList[new_division] = [];
+            dispSwitch[new_division] = "none";
+            division.push(new_division);
+          }
+          coursesList[new_division].push(doc.data());
+        });
+
+        const addModule = await this.readListModule();
+        addModule.forEach((doc) => {
+          const id = doc.get("course_id");
+          const new_division = id.slice(0, 2);
+
+          // add new pair to courses list if not yet
+          if (!(new_division in coursesList)) {
+            coursesList[new_division] = [];
+            dispSwitch[new_division] = "none";
+            division.push(new_division);
+          }
+          coursesList[new_division].push(doc.data());
+        });
+      }
 
       this.setState({
         dispSwitch: dispSwitch,
@@ -58,10 +93,32 @@ class PostsBase extends React.Component {
     }
   };
 
-  async readModule() {
+  async fetchYearCourse(allCourseRef, year) {
+    return allCourseRef.doc(year).get();
+  }
+
+  async readListModule() {
+    const coursesRef = this.props.firebase.fs.collection("courses");
+    const allCourseRef = this.props.firebase.fs.collection("year");
+
+    const doc = await this.fetchYearCourse(allCourseRef, this.state.year);
+    const allCourse = doc.get("courses");
+    const iibCourse = allCourse.filter(function(item) {
+      return item > "4A";
+    })
+
+    return coursesRef.where("course_id", "in", iibCourse).get();
+  }
+
+  async readIIbModule() {
     // read through all the documents in courses collection
     const coursesRef = this.props.firebase.fs.collection("courses");
-    return coursesRef.where("course_id", ">=", "3A").get()
+    return coursesRef.where("course_id", ">=", "4A").get();
+  }
+
+  async readIIaModule() {
+    const coursesRef = this.props.firebase.fs.collection("courses");
+    return coursesRef.where("course_id", "<=", "4A").get();
   }
 
   openModule(event) {
