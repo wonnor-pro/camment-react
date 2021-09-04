@@ -346,7 +346,46 @@ body {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-/* Posts */
+/* Reviews */
+
+.mobile-part-selection{
+    text-align: left;
+}
+
+#mobile-part-lists {
+    overflow: auto;
+    height: 80vh;
+    border: #3B434D;
+    border-style: dashed;
+    border-width: 2px;
+    border-radius: 10px;
+    padding: 0 10px;
+    color: #3B434D;
+}
+
+#mobile-part-lists >div{
+    margin: 20px 0;
+}
+
+.mobile-part-record {
+    border: #3B434D;
+    border-style: none;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.mobile-part-course-title {
+    font-size: 23px;
+}
+
+.mobile-part-review-counts {
+    font-size: 16px;
+    color: rgba(59,67,77,0.7);
+}
+
+
+/* YearReviews */
 
 
 /* Style the tab content */
@@ -413,7 +452,7 @@ body {
 }
 
 
-/* My Posts */
+/* My YearReviews */
 
 .mobile-mypost-title {
     font-size: 25px;

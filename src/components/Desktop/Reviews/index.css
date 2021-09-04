@@ -168,6 +168,41 @@ nav {
   justify-content: center;
 }
 
+/* Part selection Layout */
+
+.part-selection {
+  margin: auto;
+  width: 600px;
+  padding-top: 5%;
+}
+
+#part-lists {
+  overflow: auto;
+  /*width: 60%;*/
+  height: 500px;
+  border: #3B434D;
+  border-style: dashed;
+  border-width: 2px;
+  border-radius: 10px;
+  padding: 0 30px;
+  color: #3B434D;
+}
+
+#part-lists >div{
+  margin: 40px 0;
+}
+
+.part-record {
+  border: #3B434D;
+  border-style: none;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.part-icon {
+  padding: 0 2px;
+}
 
 /* Side Bar*/
 
@@ -241,7 +276,6 @@ nav {
 .alert a{
   color: #FA9600;
 }
-
 
 /* Tab layout */
 
@@ -448,7 +482,7 @@ nav {
 
 
 
-/* My Posts */
+/* My YearReviews */
 
 .mypost-title {
   font-size: 25px;

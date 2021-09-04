@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="17bb37c9-cb0e-4de6-a219-9b0313f94abc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Desktop/Reviews/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Desktop/Reviews/index.js" afterDir="false" />
+    <list default="true" id="8bd04198-6a5e-4657-b2aa-70bf446582d2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/components/Mobile/YearReviews/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Mobile/YearReviews/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,18 +29,18 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/components/Firebase/firebase.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/components/Desktop/MyPost/index.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/package.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/Desktop/Login/index.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/Desktop/Account/index.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/Firebase/index.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/SignOut/index.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/components/Desktop/Post/index.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/components/Desktop/SignIn/index.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/components/SignOut/index.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/components/Desktop/Login/index.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/components/App/index.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/components/Desktop/Account/index.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/components/Desktop/Raven/index.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/Desktop/MyPost/index.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/package.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/constants/routes.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/components/Firebase/index.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/Desktop/Raven/index.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/Firebase/firebase.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/App/index.js" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1tuaZNN7Ar7JNOdqvmiOQPe4mKO" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -54,9 +53,10 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Mobile/NotFound" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Desktop/YearReviews" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
@@ -65,11 +65,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/Desktop/YearReviews" />
       <recent name="$PROJECT_DIR$/src/components/Mobile/NotFound" />
       <recent name="$PROJECT_DIR$/src/components/Mobile/Report" />
       <recent name="$PROJECT_DIR$/src/components/Mobile/MyPost" />
       <recent name="$PROJECT_DIR$/src/components/Mobile/Account" />
-      <recent name="$PROJECT_DIR$/src/components/Mobile/Login" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/img" />
