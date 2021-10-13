@@ -30,6 +30,7 @@ import {MobileSuccessfulSubmission, MobileSuccessfulDeletion} from "../Mobile/Us
 import MobileNotFound from "../Mobile/NotFound";
 import MobileAccountPage from "../Mobile/Account";
 import MobileYearReviews from "../Mobile/YearReviews";
+import CookieConsent from "react-cookie-consent";
 
 // Set theme
 const theme = createMuiTheme({
@@ -82,6 +83,10 @@ class App extends React.Component {
             <Route path='*' exact={true} component={NotFound}/>
           </Switch>
         </div>
+        <CookieConsent
+          style={{ background: "#3B434DFF" }}
+          buttonStyle={{ color: "#3B434DFF", fontSize: "13px", background: "#EBEBEB" }}>
+          This website only uses functional cookies to enhance the user experience.</CookieConsent>
       </Router>
     )
   }
@@ -108,6 +113,10 @@ class App extends React.Component {
             </Switch>
           </div>
         </ThemeProvider>
+        <CookieConsent
+          style={{ background: "#3B434DFF", fontSize: "13px", }}
+          buttonStyle={{ color: "#3B434DFF", background: "#EBEBEB" }}>
+          This website only uses functional cookies to enhance the user experience.</CookieConsent>
       </Router>
     )
   }

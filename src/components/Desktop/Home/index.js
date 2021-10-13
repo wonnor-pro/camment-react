@@ -5,6 +5,7 @@ import { compose } from 'recompose';
 import SignOutButton from "../../SignOut";
 import * as ROUTES from '../../../constants/routes';
 import landingRedirection from "../../Session/landing";
+import CookieConsent from "react-cookie-consent";
 
 const HomePage = () => (
   <div className='home'>
@@ -20,6 +21,7 @@ const HomePage = () => (
     <div className='home_slogan'>
       <p>Cambridge Engineering Course Review Platform</p>
     </div>
+    <CookieConsent>This website only uses functional cookies to enhance the user experience.</CookieConsent>
   </div>
 );
 
