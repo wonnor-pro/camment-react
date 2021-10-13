@@ -1,5 +1,4 @@
 import * as ROUTES from '../../../constants/routes';
-import CookieConsent from "react-cookie-consent";
 import React from "react";
 
 const Landing = () => (
