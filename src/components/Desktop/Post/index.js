@@ -197,14 +197,17 @@ class CommentFormBase extends React.Component {
 
         //  set timestamp as date of posting
         const today = new Date();
-        const month = today.getMonth() + 1;
-        let str_month = "";
-        if (month <= 9) {
-          str_month = "0" + month.toString();
-        } else {
-          str_month = month.toString();
-        }
-        const date = today.getFullYear() + '-' + str_month + '-' + today.getDate();
+        //  DD/MM/YYYY
+        const date = Intl.DateTimeFormat('en-GB').format(today);
+        // console.log(Intl.DateTimeFormat('en-GB').format(today))
+        // const month = today.getMonth() + 1;
+        // let str_month = "";
+        // if (month <= 9) {
+        //   str_month = "0" + month.toString();
+        // } else {
+        //   str_month = month.toString();
+        // }
+        // const date = today.getFullYear() + '-' + str_month + '-' + today.getDate();
 
         // fetch user rated score
         let score = this.state.rating;

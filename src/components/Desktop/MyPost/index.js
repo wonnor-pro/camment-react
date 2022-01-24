@@ -122,7 +122,7 @@ class MyPost extends Component {
         posts: new_posts
       }, {merge: true});
     });
-    alert("stop here");
+    // alert("stop here");
     this.props.history.push("/successful-deletion");
   }
 
