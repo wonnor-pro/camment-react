@@ -21,7 +21,7 @@ class MobileHomePage extends React.Component{
             # Camments _
           </div>
           <div className='mobile-home-slogan'>
-            <p>Cambridge Engineering Course </p>
+            <p>Student-Run Course</p>
             <p>Review Platform</p>
           </div>
         </div>

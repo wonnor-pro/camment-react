@@ -49,7 +49,7 @@ class MobileLogin extends React.Component {
             </div>
           </div>
           <div className="mobile-user-slogan">
-            <p>Cambridge Course Review Platform</p>
+            <p>Camments Course Review Platform</p>
           </div>
         </div>
       </div>

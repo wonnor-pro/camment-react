@@ -26,7 +26,7 @@ const NavigationAuth = ({ authUser }) => (
         # Camments _
       </div>
       <div id="slogan">
-        Cambridge Course Review Platform
+        Camments Course Review Platform
       </div>
     </div>
     <ul className="nav-links">
@@ -53,7 +53,7 @@ const NavigationNonAuth = () => (
         # Camments _
       </div>
       <div id="slogan">
-        Cambridge Course Review Platform
+        Camments Course Review Platform
       </div>
     </div>
     <ul className="nav-links">

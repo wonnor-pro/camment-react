@@ -18,7 +18,7 @@ const HomePage = () => (
       # Camments _
     </div>
     <div className='home_slogan'>
-      <p>Cambridge Engineering Course Review Platform</p>
+      <p>Student-Run Course Review Platform</p>
     </div>
   </div>
 );

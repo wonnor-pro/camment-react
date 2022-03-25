@@ -8,6 +8,7 @@ import {compose} from 'recompose';
 import StyledRating from "../Score";
 import UserStyledRating from "../Score/user";
 import * as ROUTES from "../../../constants/routes";
+import {Button} from "@material-ui/core";
 
 class PostForm extends React.Component {
   // at post page for each course, get all the existing posts and render
@@ -106,6 +107,16 @@ class PostForm extends React.Component {
             {this.state.postsId.map((postId, index) => {
               return (
                 <div className="comment-post" key={index}>
+                  <div className="my-subpost-title">
+                    <Button
+                      className="mobile-post-delete"
+                      color="#9a9a9a"
+                      href={ROUTES.REPORT}
+                      size="small"
+                    >
+                      Report
+                    </Button>
+                  </div>
                   <div className="comment"> {this.state.postsMap[postId].content}</div>
                   <div className="comment-info">
                     <div>
@@ -199,15 +210,6 @@ class CommentFormBase extends React.Component {
         const today = new Date();
         //  DD/MM/YYYY
         const date = Intl.DateTimeFormat('en-GB').format(today);
-        // console.log(Intl.DateTimeFormat('en-GB').format(today))
-        // const month = today.getMonth() + 1;
-        // let str_month = "";
-        // if (month <= 9) {
-        //   str_month = "0" + month.toString();
-        // } else {
-        //   str_month = month.toString();
-        // }
-        // const date = today.getFullYear() + '-' + str_month + '-' + today.getDate();
 
         // fetch user rated score
         let score = this.state.rating;

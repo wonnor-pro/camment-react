@@ -8,6 +8,7 @@ import * as ROUTES from "../../../constants/routes";
 import {withStyles} from "@material-ui/core/styles";
 
 import Rating from "@material-ui/lab/Rating";
+import {Button} from "@material-ui/core";
 
 const StyledRating = withStyles({
   iconFilled: {
@@ -126,6 +127,16 @@ class MobilePostForm extends React.Component {
               {this.state.postsId.map((postId, index) => {
                 return (
                   <div className="mobile-comment-post" key={index}>
+                    <div className="my-subpost-title">
+                      <Button
+                        className="mobile-post-delete"
+                        color="#9a9a9a"
+                        href={ROUTES.REPORT}
+                        size="small"
+                      >
+                        Report
+                      </Button>
+                    </div>
                     <div className="mobile-comment"> {this.state.postsMap[postId].content}</div>
                     <div className="mobile-comment-info">
                       <div>
@@ -220,14 +231,6 @@ class MobileCommentFormBase extends React.Component {
         const today = new Date();
         //  DD/MM/YYYY
         const date = Intl.DateTimeFormat('en-GB').format(today);
-        // const month = today.getMonth() + 1;
-        // let str_month = "";
-        // if (month <= 9) {
-        //   str_month = "0" + month.toString();
-        // } else {
-        //   str_month = month.toString();
-        // }
-        // const date = today.getFullYear() + '-' + str_month + '-' + today.getDate();
 
         // fetch user rated score
         let score = this.state.rating;

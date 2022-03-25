@@ -66,7 +66,7 @@ class Login extends React.Component {
           #
         </div>
         <div id="account-slogan">
-          <p>Cambridge Course Review Platform</p>
+          <p>Camments Course Review Platform</p>
         </div>
       </div>
     )
