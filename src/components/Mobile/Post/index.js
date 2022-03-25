@@ -131,7 +131,7 @@ class MobilePostForm extends React.Component {
                       <Button
                         className="mobile-post-delete"
                         color="#9a9a9a"
-                        href={ROUTES.REPORT}
+                        href={"/report/" + postId}
                         size="small"
                       >
                         Report
@@ -185,7 +185,7 @@ class MobileCommentFormBase extends React.Component {
     super(props);
     this.state = {
       comment: '',  // content of new post
-      year: 2020,  // default begin_year
+      year: 2021,  // default begin_year
       rating: 2.5,  // default score
     };
 
@@ -281,7 +281,7 @@ class MobileCommentFormBase extends React.Component {
         {this.props.firebase.auth.currentUser &&
         <form className="mobile-comment-form" onSubmit={this.handleSubmit}>
           <label>
-          <textarea name="comment" id="user-review" placeholder="Type in your review here."
+          <textarea name="comment" id="user-review" placeholder="Type in your review here -> Please avoid rude or abusive comments towards colleagues or lecturers."
                     onChange={this.handleChange}/>
           </label>
           <br/>

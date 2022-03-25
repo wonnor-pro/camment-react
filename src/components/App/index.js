@@ -79,7 +79,8 @@ class App extends React.Component {
             <Route path="/successful-deletion" component={SuccessfulDeletion}/>
             <Route path={ROUTES.LOG_IN} component={Login}/>
             <Route path={ROUTES.MY_POSTS} component={MyPost}/>
-            <Route path={ROUTES.REPORT} component={Report}/>
+            <Route path="/report/:ID" component={Report}/>
+            <Route path={ROUTES.REPORT} exact={true} component={Report}/>
             <Route path='*' exact={true} component={NotFound}/>
           </Switch>
         </div>
@@ -108,7 +109,8 @@ class App extends React.Component {
               <Route path="/successful-deletion" component={MobileSuccessfulDeletion}/>
               <Route path={ROUTES.LOG_IN} component={MobileLogin}/>
               <Route path={ROUTES.MY_POSTS} component={MobileMyPost}/>
-              <Route path={ROUTES.REPORT} component={MobileReport}/>
+              <Route path="/report/:ID" component={MobileReport}/>
+              <Route path={ROUTES.REPORT} exact={true} component={MobileReport}/>
               <Route path='*' exact={true} component={MobileNotFound}/>
             </Switch>
           </div>

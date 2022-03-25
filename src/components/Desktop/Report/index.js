@@ -11,7 +11,7 @@ import {withRouter} from "react-router-dom";
 class Report extends Component {
   constructor(props) {
     super(props);
-    this.state = {ravenData: {}, isFetching: false};
+    this.state = {ravenData: {}, post_ID: this.props.match.params.ID, isFetching: false};
   }
 
 
@@ -40,7 +40,7 @@ class Report extends Component {
                 <p>please kindly let us know via the form below.</p>
               </div>
               <iframe
-                src="https://docs.google.com/forms/d/e/1FAIpQLSd2fl7SaZBkVhUgcw4e35_UvJBS12xZgtrRFPuzCAwVQVQzwA/viewform?embedded=true"
+                src={"https://docs.google.com/forms/d/e/1FAIpQLSd2fl7SaZBkVhUgcw4e35_UvJBS12xZgtrRFPuzCAwVQVQzwA/viewform?usp=pp_url&entry.371232267=" + this.state.post_ID}
                 width="500" height="673" frameBorder="1" marginHeight="0" marginWidth="0">Loading…
               </iframe>
             </div>
