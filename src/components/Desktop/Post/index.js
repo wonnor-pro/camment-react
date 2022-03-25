@@ -110,7 +110,6 @@ class PostForm extends React.Component {
                   <div className="my-subpost-title">
                     <Button
                       className="mobile-post-delete"
-                      color="#9a9a9a"
                       href={"/report/" + postId}
                       size="small"
                     >
