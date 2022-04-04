@@ -123,7 +123,7 @@ class MobilePostForm extends React.Component {
             <div className="mobile-disclaimer"> Please be kindly noted that the course syllabus and lecturers may vary
               from year
               to year.
-              Legacy posts are collected from previous resources.
+              Legacy posts are collected from online resources.
             </div>
             <div className="mobile-comments-box">
               {this.state.postsId.map((postId, index) => {

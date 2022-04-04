@@ -51,19 +51,21 @@ class PostsBase extends React.Component {
           }
           coursesList[new_division].push(doc.data());
         });
-      } else {
+      } else if (this.state.year === "iia") {
         const querySnapshot = await this.readIIaModule();
         querySnapshot.forEach((doc) => {
           const id = doc.get("course_id");
           const new_division = id.slice(0, 2);
-
-          // add new pair to courses list if not yet
-          if (!(new_division in coursesList)) {
-            coursesList[new_division] = [];
-            dispSwitch[new_division] = "none";
-            division.push(new_division);
+          if (id >= "3A"){
+            // add new pair to courses list if not yet
+            if (!(new_division in coursesList)) {
+              coursesList[new_division] = [];
+              dispSwitch[new_division] = "none";
+              division.push(new_division);
+            }
+            coursesList[new_division].push(doc.data());
           }
-          coursesList[new_division].push(doc.data());
+
         });
 
         const addModule = await this.readListModule();
@@ -79,7 +81,23 @@ class PostsBase extends React.Component {
           }
           coursesList[new_division].push(doc.data());
         });
+      } else {
+        const querySnapshot = await this.readIbModule();
+        querySnapshot.forEach((doc) => {
+          const id = doc.get("course_id");
+          // Paper 2 needs three character: 2P8
+          const new_division = id.slice(0, 3);
+          // add new pair to courses list if not yet
+          if (!(new_division in coursesList)) {
+            coursesList[new_division] = [];
+            dispSwitch[new_division] = "none";
+            division.push(new_division);
+          }
+          coursesList[new_division].push(doc.data());
+
+        });
       };
+
 
       this.setState({
         dispSwitch: dispSwitch,
@@ -117,8 +135,15 @@ class PostsBase extends React.Component {
   }
 
   async readIIaModule() {
+    // read through all the documents in courses collection
     const coursesRef = this.props.firebase.fs.collection("courses");
-    return coursesRef.where("course_id", "<=", "4A").get();
+    return coursesRef.where("course_id", "<", "4A").get();
+
+  }
+
+  async readIbModule() {
+    const coursesRef = this.props.firebase.fs.collection("courses");
+    return coursesRef.where("course_id", "<", "3A").get();
   }
 
   openModule(event) {
@@ -148,6 +173,10 @@ class PostsBase extends React.Component {
   }
 
   render() {
+    let syllabusLink = "";
+    if (this.state.year === "ib") {syllabusLink = "http://teaching.eng.cam.ac.uk/content/part-ib-syllabuses-links-line-resources";}
+    else if (this.state.year === "iia") {syllabusLink = "http://teaching.eng.cam.ac.uk/node/2979";}
+    else {syllabusLink = "http://teaching.eng.cam.ac.uk/node/3003";}
     return (
       <div className="Reviews">
         <Navigation />
@@ -155,10 +184,10 @@ class PostsBase extends React.Component {
           <div id="main">
             <div id="review">
               <div className="tab">
-                <h3 id="tab-title">Part {this.state.year.toUpperCase()}</h3>
-
-                {this.state.year === 'ib' && <p> IB 2P8 pages will be up soon! </p>}
-
+                <div id="tab-title">
+                  <h3 >Part {this.state.year.toUpperCase()}</h3>
+                  <a href={syllabusLink}>(Syllabuses)</a>
+                </div>
                 <div className="load">{this.state.isFetching ? 'Loading...' : ''}</div>
                 {this.state.division.map((value, index) => {
                   return (
