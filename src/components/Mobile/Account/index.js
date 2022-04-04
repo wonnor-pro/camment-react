@@ -55,7 +55,7 @@ class MobileAccountPage extends React.Component{
               </div>
 
               <div className="mobile-user-slogan">
-                <p>Cambridge Course Review Platform</p>
+                <p>Student-Run Course Review Platform</p>
               </div>
             </div>
           </div>

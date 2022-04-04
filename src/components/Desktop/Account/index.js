@@ -67,7 +67,7 @@ const AccountPage = () => (
           {"<?"}
         </div>
         <div id="account-slogan">
-          <p>Cambridge Course Review Platform</p>
+          <p>Student-Run Course Review Platform</p>
         </div>
 
       </div>

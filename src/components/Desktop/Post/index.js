@@ -80,7 +80,12 @@ class PostForm extends React.Component {
           <div className="load">{'Loading...'}</div>
         </div>
         }
-        {!this.state.isFetching &&
+        {!this.state.isFetching && this.state.course.name == null &&
+        <div className="post">
+          <p> There is no such module! </p>
+        </div>
+        }
+        {!this.state.isFetching && this.state.course.name != null &&
         <div className="post">
           <div className="course-info">
             <p className="course-id">{this.state.ID}</p>

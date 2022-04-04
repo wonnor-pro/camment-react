@@ -90,7 +90,6 @@ class MobilePostForm extends React.Component {
   }
 
   render() {
-
     return (
       <div className="Post">
         <div className={"mobile-main"}>
@@ -99,7 +98,10 @@ class MobilePostForm extends React.Component {
             <div className="load">{'Loading...'}</div>
           </div>
           }
-          {!this.state.isFetching &&
+          {!this.state.isFetching && this.state.course.name == null &&
+          <p> There is no such module! </p>
+          }
+          {!this.state.isFetching && this.state.course.name != null &&
           <div className="mobile-post">
             <div className="mobile-course-info">
               <p className="mobile-course-id">{this.state.ID}</p>

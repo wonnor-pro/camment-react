@@ -18,6 +18,22 @@ const Reviews = () => {
             <div className="score_wrapper">
               <StyledRating
                 name="score"
+                value={2}
+                icon={<FontAwesomeIcon className={"part-icon"} icon={faCalendarCheck}/>}
+                precision={1}
+                max={4}
+                size="medium"
+                readOnly
+              />
+            </div>
+            <Link to={"/reviews/ib"}
+                  className="course-title">{"Part IB"}</Link>
+          </div>
+          <div className="part-record">
+            <p className="review-counts">Engineering Tripos</p>
+            <div className="score_wrapper">
+              <StyledRating
+                name="score"
                 value={3}
                 icon={<FontAwesomeIcon className={"part-icon"} icon={faCalendarCheck}/>}
                 precision={1}

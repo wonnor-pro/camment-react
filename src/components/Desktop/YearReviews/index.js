@@ -155,11 +155,10 @@ class PostsBase extends React.Component {
           <div id="main">
             <div id="review">
               <div className="tab">
-                {(this.state.year == "iia") ? (
-                  <h3 id="tab-title">Part IIA</h3>
-                ) : (
-                  <h3 id="tab-title">Part IIB</h3>
-                )}
+                <h3 id="tab-title">Part {this.state.year.toUpperCase()}</h3>
+
+                {this.state.year === 'ib' && <p> IB 2P8 pages will be up soon! </p>}
+
                 <div className="load">{this.state.isFetching ? 'Loading...' : ''}</div>
                 {this.state.division.map((value, index) => {
                   return (

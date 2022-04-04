@@ -165,11 +165,10 @@ class MobileYearReviews extends React.Component {
         <div className="mobile-division">
           <p>Select the course division</p>
           <FormControl variant="outlined" style={{minWidth: 250}}>
-            {(this.state.year == "iia") ? (
-              <InputLabel id="demo-simple-select-outlined-label">Part IIA</InputLabel>
-            ) : (
-              <InputLabel id="demo-simple-select-outlined-label">Part IIB</InputLabel>
-            )}
+            <h3 id="tab-title">Part {this.state.year.toUpperCase()}</h3>
+
+            {this.state.year === 'ib' && <p> IB 2P8 pages will be up soon! </p>}
+
             <Select
               labelId="demo-simple-select-outlined-label"
               id="demo-simple-select-outlined"
