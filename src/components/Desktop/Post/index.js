@@ -45,7 +45,9 @@ class PostForm extends React.Component {
 
       const doc = await this.fetchCourseAsync(courseRef);
       const course = doc.data();
-      const postsId = doc.get("posts");
+
+      // Get the latest posts first
+      const postsId = doc.get("posts").reverse();
 
       const postMap = {};  // {key: postId, value post object}
       for (const value of postsId) {
